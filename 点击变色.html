@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>单击变色</title>
+    <style>
+        h1{
+            background: blue;
+            width: 400px;
+            height: 300px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+<h1>点击变色</h1>
+<script>
+    var oH1 = document.getElementsByTagName('h1')[0];
+oH1.onclick = function () {
+    this.style.background = 'pink';
+};
+
+
+</script>
+
+</body>
+</html>

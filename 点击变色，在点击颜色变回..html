@@ -7,7 +7,9 @@
         h1{
             width: 400px;
             height: 300px;
-            background:blue;
+            background: deepskyblue ;/*#00bfff不好使，#的16进制 自动给转为rgb格式,通过 this.style.backgroup获取的值是  rgb格式的颜色值*/
+
+
             color: #333333;
             text-align: center;
             line-height: 300px;
@@ -20,16 +22,15 @@
 <script>
     var oH1 = document.getElementsByTagName('h1')[0]
     oH1.onclick = function () {
-        if(this.style.background == 'blue'){
+        if(this.style.background == 'deepskyblue'){
             this.style.background ='pink' ;
         }else{
-            this.style.background='blue';
+            this.style.background='deepskyblue';
         }
 
     };
 
 </script>
-
 
 </body>
 </html>
