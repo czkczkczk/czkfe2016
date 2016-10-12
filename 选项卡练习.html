@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        #container{
+            width:400px;
+            height: 200px;
+            margin: 100px auto;/*auto只对水平左右居中有效，对上下居中没有用*/
+        }
+        #nav{
+            height: 30px;/*给ul设置高度，防止塌陷问题*/
+        }
+        #nav li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            background: gainsboro;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 30px;/*设置li中文字 上下居中 的小技巧*//*要让高度与li高度一样*/
+        }
+        #nav .selected{
+            background: #000000;
+            color: #ffffff;;
+        }
+        #content{
+            background: #cccccc;
+            width: 400px;
+            height: 170px;
+            border-top: 1px solid #000000;/*这是给下面的div加了一个上边框 solid是实心*/
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div id="container"><!--container容器-->
+    <ul id="nav"><!--navigation导航-->
+        <li class="selected">js</li><!--selected被选择的-->
+        <li>html</li>
+        <li>css</li>
+    </ul>
+    <div id="content"><!--content内容-->
+        123
+        <!--此时的文字是在刚进入网页中看见的，在点击后会被后面设置的信息覆盖-->
+    </div>
+
+</div>
+<script>
+    var data = ['11','22','33'];/*定义一个数据。数据不止一个，所以数组存数据*/
+    var aNav = document.getElementById('nav');
+    var ali = document.getElementsByTagName('li');
+    var oContemt = document.getElementById('content');
+    for(var i=0;i<ali.length;i++){
+        ali[i].index = i;/*自定义一个索引[可以不是索引]*//*例ali[i].xx =i ,ali[0].index = 0 *//*自定义索引的原因是因为，当点击某一个li的时候你不知道这个li的索引*/
+        ali[i].onclick = function(){
+            for(var i=0;i<ali.length;i++){
+                ali[i].className = '';/*在此时把所有的className都清空，在下一步点击谁就给谁className*/
+            }
+            this.className = 'selected';/*此处必须用className，因为在js中class是关键字不能用*/
+            oContemt.innerHTML = data[this.index];/* innerHTML就是这个网页中的内容*/
+
+        }
+    }
+
+</script>
+
+</body>
+</html>
