@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 680px;
+            height: 344px;
+            margin: 100px auto;
+            position: relative;
+            background: gray;
+        }
+        #tab{
+            overflow: hidden;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #tab li{
+            float: left;
+            width: 30px;
+            height: 30px;
+            background: #000000;
+            color: #eeeeee;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 30px;
+            cursor:pointer;/*css语句，鼠标划过是小手的形状*/
+        }
+        #arrow{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        #arrow span{
+            width: 30px;
+            height: 30px;
+            background: #000000;
+            color: #eeeeee;
+            margin-left: 10px;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+
+        }
+        #tab .selected{
+            background: orange;
+        }
+        #content img{
+            display: none;
+        }
+        #content .selected{
+            display:block;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="tab">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="content">
+        <img  class="selected" src="img/1.jpg" alt=""/>
+        <img src="img/2.jpg" alt=""/>
+        <img src="img/3.jpg" alt=""/>
+        <img src="img/4.jpg" alt=""/>
+    </div>
+    <div id="arrow">
+        <span id="prev"> &lt; </span>
+        <span id="next"> &gt; </span>
+    </div>
+</div>
+<script>
+    var oTab = document.getElementById('tab')
+    var aLi = oTab.getElementsByTagName('li')
+    var oContent = document.getElementById('content');
+    var aImg =oContent.getElementsByTagName('img');
+    var oPrev = document.getElementById('prev');
+    var oNext = document.getElementById('next');
+    var iNow = 0;/*定义一个当前索引变量 iNow*/
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onmouseover = function(){
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].className = '';
+                aImg[i].className = '';
+            }
+            this.className = 'selected';
+            aImg[this.index].className = 'selected';
+            iNow = this.index;/*这里是为了让不点击左右箭头时，滑动li，索引相同*/
+        }
+    }
+    oNext.onclick = function(){
+        iNow = iNow+1;
+        if(iNow == aLi.length){
+            iNow=0;
+        }
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].className = '';
+            aImg[i].className = '';
+        }
+        aLi[iNow].className = 'selected';
+        aImg[iNow].className = 'selected';
+    }
+    oPrev.onclick = function() {
+        iNow = iNow - 1;
+        if (iNow == -1) {
+            iNow =aLi.length-1;
+        }
+
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].className = '';
+            aImg[i].className = '';
+        }
+        aLi[iNow].className = 'selected';/*当前Li的索引*/
+        aImg[iNow].className = 'selected';/*当前img的索引*/
+    }
+
+
+
+</script>
+</body>
+</html>
