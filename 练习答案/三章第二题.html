@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var today = new Date();
+    var year = today.getUTCFullYear();
+    var Leapyear  = ((year%4 == 0 && year%100 != 0 ||year%400 == 0));
+    console.log(Leapyear);
+    document.write('本年');
+    document.write(Leapyear?'是闰年':'不是闰年');
+</script>
+
+</body>
+</html>

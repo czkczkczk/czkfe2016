@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        #container{
+            background: #808080;
+            width: 400px;
+            height: 200px;
+            position: relative;
+            margin: 100px auto;
+        }
+        #content{
+            position: absolute;
+
+
+        }
+        #content li{
+            background: #000;
+            color: #ffffff;
+            float: left;
+            width: 80px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            margin-right: 20px;
+        }
+        #arrow{
+            position: absolute;
+            left: 160px;
+            bottom: 30px;
+
+
+
+        }
+        #arrow span{
+            background: #000;
+            color: #eeeeee;
+            float: left;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            cursor: pointer;
+
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrow">
+            <span id="left">&lt;左</span>
+            <span id="right">右&gt;</span>
+        </div>
+    </div>
+
+    <script>
+        var oContainer  = document.getElementById('container');
+        var oContent = document.getElementById('content');
+
+        var oLeft = document.getElementById('left');
+        var oRight = document.getElementById('right');
+        oContent.innerHTML = oContent.innerHTML+oContent.innerHTML;
+        console.log(oContent.innerHTML);
+        var aLi = oContent.getElementsByTagName('li');
+        oContent.style.width =(aLi[0].offsetWidth + 20)* aLi.length +'px';
+
+        var speed = -2;
+        setInterval(function(){
+            oContent.style.left = oContent.offsetLeft + speed +'px';
+            if(oContent.offsetLeft == - oContent.offsetWidth/2){
+                oContent.style.left = 0;
+            }
+            if(oContent.offsetLeft > 0){
+                oContent.style.left = - oContent.offsetWidth/2 + 'px';
+
+            }
+        },30);
+        oRight.onmouseover = function(){
+            speed = 2;
+        }
+        oLeft.onmouseover = function() {
+            speed = -2;
+        }
+    </script>
+</body>
+</html>

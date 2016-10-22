@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>拖拽</title>
     <style>
         *{
             margin: 0;
             padding: 0;
         }
         #drag{
-            width: 200px;
-            height: 200px;
+            width:150px;
+            height: 150px;
             background: #ff0000;
             cursor: pointer;
             position: absolute;
@@ -18,23 +18,32 @@
     </style>
 </head>
 <body>
-      <div id="drag"></div>
-      <script>
-          var oDrag = document.getElementById('drag');
-           oDrag.onmousedown = function(e){
-              e = e || window.event;
-              var iDisX = e.clientX - oDrag.offsetLeft,
-                   iDisY = e.clientY - oDrag.offsetTop;
-               document.onmousemove = function(e){
-                    e = e || window.event;
-                    oDrag.style.left = e.clientX - iDisX + 'px';
-                    oDrag.style.top  = e.clientY  -iDisY +   'PX';
-                };
-              oDrag.onmouseup = function(){
-                  document.onmousemove = null;
-              }
-          };
-
-      </script>
+<h1>hhhhhhhhhhhhhhhhhhhhhhhh</h1>
+<!--在此处拖拽会有浏览器默认行为，需要在后面阻止浏览器默认行为-->
+<div id="drag"></div>
+<script>
+    var oDrag = document.getElementById("drag");
+    oDrag.onmousedown = function(e){
+        e = e || window.event;
+        var iDisX = e.clientX - oDrag.offsetLeft,
+                iDisY = e.clientY - oDrag.offsetTop;
+        document.onmousemove = function(e){
+            e = e || window.event;
+            oDrag.style.left = e.clientX - iDisX + "px";
+            oDrag.style.top = e.clientY - iDisY + "px";
+//                return false;/*此处是阻止浏览器的默认行为*/
+        };
+        oDrag.onmouseup = function() {
+            document.onmousemove = null;
+        };
+    };
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
