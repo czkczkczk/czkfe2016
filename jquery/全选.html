@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form  method="post" action="">
+        <input type="checkbox" name="1" value="琴"/>琴
+        <input type="checkbox" name="2" value="棋"/>棋
+        <input type="checkbox" name="3" value="书"/>书
+        <input type="checkbox" name="4" value="画"/>画
+        <br/>
+        <input type="button" id="qx" value="全选"/>
+        <input type="button" id="qbx" value="全不选"/>
+        <input type="button" id="fx" value="反选"/>
+    </form>
+    <script src= 'jquery-1.12.4 - 副本.js'></script>
+    <script>
+        $(function(){
+            $('#qx').on('click',function(){
+                $('input[type]').prop('checked',true);
+            });
+            $('#qbx').on('click',function(){
+                $('input[type]').prop('checked',false);
+            });
+            $('#fx').on('click',function(){
+                $('input[name]').each(function(a,b){
+                    this.checked = !this.checked;
+                });
+            });
+
+        });
+
+    </script>
+</body>
+</html>
