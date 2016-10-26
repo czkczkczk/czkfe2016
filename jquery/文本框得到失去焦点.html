@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            border: 1px solid #000000;
+            width: 600px;
+        }
+        .f{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<form  method="post" action="">
+    <div id="div1">
+        基本信息
+        <div id="div2">
+            <input type="text"   id="y"  value="qq"/>用户名
+            <br/>
+            <input type="text" id="m" value="qqq"/>密码
+            <br/>
+            <input type="textarea" value="qqqqq"/>内容
+        </div>
+    </div>
+</form>
+<script src= 'jquery-1.12.4 - 副本.js'></script>
+<script>
+    $(function(){
+        $('input').on('focus',function(){
+            $(this).addClass('f')
+            if(this.value == this.defaultValue){/*当你点击，如果是默认值就清空，不是默认值不用清空*/
+                this.value = '';
+            }
+        })
+        $('input').on('blur',function(){
+            $(this).removeClass('f')
+            if(this.value ==''){
+                this.value =this.defaultValue;/*.defaultValue是原来默认值*/
+            }
+        })
+    })
+</script>
+</body>
+</html>
+
