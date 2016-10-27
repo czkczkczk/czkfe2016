@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table,td{
+            border-collapse: collapse;
+        }
+        input{
+            border: 1px solid #000000;
+        }
+      td{
+           width: 100px;
+        }
+    </style>
+</head>
+<body>
+    筛选：<input type="text"/>
+<table>
+    <tbody>
+    <tr><td>老师</td><td>1</td><td>2</td></tr>
+    <tr><td>学生</td><td>2</td><td>2</td></tr>
+    <tr><td>主席</td><td>1</td><td>1</td></tr>
+    <tr><td>哈哈</td><td>1</td><td>1</td></tr>
+    <tr><td>看看</td><td>2</td><td>2</td></tr>
+    </tbody>
+    <script src="jquery-1.12.3.js"></script>
+    <script>
+        $(function(){
+            $('input').on('keyup',function(){
+                var $val = $(this).val() ;
+                $('tr').hide().filter(':contains('+$val+')').show();
+            })
+        })
+    </script>
+</table>
+</body>
+</html>
