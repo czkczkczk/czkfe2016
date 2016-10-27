@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        table,td{
+            border-collapse: collapse;
+        }
+        thead{
+            border-bottom: 1px solid #000000 ;
+        }
+        #t1{
+            background: yellow;
+        }
+        #t2{
+            background: #ff0000;
+        }
+        .child_t1{
+            background: cornflowerblue;
+        }
+        .child_t2{
+            background:cornflowerblue;
+        }
+        #t1.bgc{
+            background: pink;
+        }
+        .class{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr><h1>465456465465</h1></tr>
+        </thead>
+        <tbody>
+        <tr class="tr1" id="t1"><td>3232323</td></tr>
+        <tr class="child_t1" ><td>3qqq232323</td></tr>
+        <tr class="child_t1" ><td>32www32323</td></tr>
+        <tr class="tr1" id="t2"><td>32eee32323</td></tr>
+        <tr  class="child_t2"><td>4654646</td></tr>
+        <tr  class="child_t2"><td>123132123</td></tr>
+        </tbody>
+    </table>
+    <script src="jquery-1.12.3.js"></script>
+    <script>
+        $(function(){
+            $('tr.tr1').on('click',function(){
+//                if($('.child_t1').hasClass('class')){
+//                    $('.child_t1').removeClass('class')
+//                }else{
+//                    $('.child_t1').addClass('class')
+//                }
+                $(this).toggleClass('bgc').siblings('.child_'+this.id).toggle();
+
+            })
+        })
+    </script>
+</body>
+</html>
