@@ -34,3 +34,12 @@ $('input').on('focus',function(){
         $('#img img').eq(index).show().siblings().hide()
     })
 })
+//$('#right').on('click', function () {
+//    index++;
+//    if(index==$('#img img').size()){
+//        index=0;
+//    }
+//  $('#img img').animate(
+//      top:-index*$('#img img').eq(0).height
+//  )
+//})

@@ -58,7 +58,7 @@ input{
 span{
     width: 30px;
     height: 30px;
-    background:url("../psd/xjl.png") 9px 9px;
+    background:url("../psd/xjl.png") 9px 9px no-repeat;
     float: right;
     position: absolute;
 }
@@ -74,24 +74,153 @@ span{
     margin: 0 auto;
     position:relative;
 }
-
+#main span{
+    height: 50px;
+}
 #left{
-    background: url("../psd/xjl.png")0 -64px;
-    width: 23px;
+    background: url("../psd/xjl.png")0 -24px;
+    width: 29px;
     height: 50px;
     position:absolute;
-    top: 206px;
+    top: 50%;
+    margin-top: -25px;
     left: 0;
     float: left;
     z-index: 10;
 }
 #right{
-    background: url("../psd/xjl.png")0 -14px ;
-    width: 23px;
+    background: url("../psd/xjl.png")0 -100px ;
+    width: 29px;
     height: 50px;
     position:absolute;
-    top: 206px;
+    top: 50%;
+    margin-top: -25px;
     right: 0;
     float: right;
     z-index: 10;
+}
+#news{
+    height: 480px;
+
+}
+#news-img{
+    width: 1002px;
+    height: 390px;
+    margin: 0 auto;
+    position: relative;
+}
+#aone{
+    position: relative;
+    width: 334px;
+    float: left;
+    left: 120px;
+}
+#atwo{
+    position: relative;
+    width: 334px;
+    float: left;
+    left: 120px;
+
+}
+#athree{
+  position: relative;
+    width: 334px;
+    float: left;
+    left: 120px;
+}
+#news a{
+    font-family: Myriad Pro Regular;
+    font-size: 15px;
+    color: #02adfd;
+}
+#works{
+    height: 500px;
+    background: #e2e7ed;
+}
+#works-img{
+    position: relative;
+    top: 70px;
+    width: 1002px;
+    height: 500px;
+    margin: 0 auto;
+}
+#works h1{
+    position: relative;
+    left: 140px;
+    top: 30px;
+    color: #626262;
+    float: left;
+}
+#works img{
+    float: left;
+}
+#foots-img{
+    margin: 0 auto;
+    width: 1280px;
+    height: 154px;
+}
+#foots{
+    /*background: #31333f;*/
+    height: 176px;
+    position: relative;
+}
+#a1{
+    background: url("../psd/xjl.png")0 -407px;
+    position:absolute;
+    left: 863px;
+    top: 45px;
+    z-index: 10;
+    float: left;
+    width: 39px;
+    height: 35px;
+}
+#a2{
+    background: url("../psd/xjl.png")-47px -407px;
+    position:absolute;
+    left: 914px;
+    top: 45px;
+    z-index: 10;
+    float: left;
+    width: 39px;
+    height: 35px;
+}
+#a3{
+    background: url("../psd/xjl.png")-95px -407px;
+    position:absolute;
+    left: 959px;
+    top: 45px;
+    z-index: 10;
+    float: left;
+    width: 39px;
+    height: 35px;
+}
+#a4{
+    background: url("../psd/xjl.png")-143px -407px;
+    position:absolute;
+    left: 1007px;
+    top: 45px;
+    z-index: 10;
+    float: left;
+    width: 39px;
+    height: 35px;
+}
+#a5{
+    background: url("../psd/xjl.png")-190px -407px;
+    position:absolute;
+    left: 1050px;
+    top: 45px;
+    z-index: 10;
+    float: left;
+    width: 39px;
+    height: 35px;
+}
+#a6{
+    background: url("../psd/xjl.png")-239px -407px;
+    position:absolute;
+    left: 1105px;
+    top: 45px;
+    z-index: 10;
+    float: left;
+    width: 39px;
+    height: 35px;
 }
