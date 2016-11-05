@@ -10,10 +10,13 @@ body{
 
 }
 #header{
+    position: relative;
+    margin: 0 auto;
     background: #eaeaea;
-    height: 108px;
+    height: 105px;
 }
 #container{
+    position: absolute;
     margin: 0 auto;
     width: 990px;
     height: 105px;
@@ -31,7 +34,7 @@ body{
 #skin {
     float:right;
     margin:10px;
-    /*padding:4px;*/
+    padding:4px;
     width:120px;
 }
 
@@ -58,13 +61,51 @@ body{
 #skin_3.selected { background-position:55px 15px; }
 #skin_4.selected { background-position:75px 15px; }
 #skin_5.selected { background-position:95px 15px; }
+#nav.skin_0_color{
+    background: #4f71b9;
+}
+#nav.skin_1_color{
+    background: #c152da;
+}
+#nav.skin_2_color{
+    background: #e1215d;
+}
+#nav.skin_3_color{
+    background: #0abdce;
+}
+#nav.skin_4_color{
+    background: #f9af2a;
+}
+#nav.skin_5_color{
+    background: #b1d460;
+}
+#hh.skin_0_color{
+    background: #4f71b9;
+}
+#hh.skin_1_color{
+    background: #c152da;
+}
+#hh.skin_2_color{
+    background: #e1215d;
+}
+#hh.skin_3_color{
+    background: #0abdce;
+}
+#hh.skin_4_color{
+    background: #f9af2a;
+}
+#hh.skin_5_color{
+    background: #b1d460;
+}
+
+
 #nav{
    position: absolute;
     left: 188px;
    top: 70px;
-    background: #000;
     width: 990px;
     height: 37px;
+    text-indent: 10px;
 }
 
 #nav li{

@@ -4,7 +4,12 @@
 $(function(){
     $('#skin li').on('click',function(){
         console.log(11)
+        var $id = this.id;
         $(this).addClass('selected').siblings().removeClass('selected')
+        $('#nav').attr('class',$id+"_color");
+        $('#hh').attr('class',$id+"_color");
+
+
 
     })
 })
