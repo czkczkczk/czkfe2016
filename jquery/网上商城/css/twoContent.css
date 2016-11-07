@@ -99,9 +99,9 @@ body{
 
 
 #nav{
-   position: absolute;
+    position: absolute;
     left:0px;
-   top: 70px;
+    top: 70px;
     width: 990px;
     height: 37px;
     text-indent: 10px;
@@ -119,7 +119,6 @@ body{
 #content{
     position:relative;
     margin: 0 auto;
-
     width: 990px;
     height: 580px;
 }
@@ -130,6 +129,7 @@ body{
     top: 11px;
     border: 1px solid black;
     text-indent: 10px;
+    margin: 0 11px 0 0;
 }
 #big a{
     text-decoration: none;
@@ -168,162 +168,170 @@ body{
     height: 24px;
     text-indent: 10px;
 }
-#advert{
-    position:absolute;
-    left: 199px;
-    top: 11px;
-    /*background: red;*/
-    width: 550px;
-    height: 321px;
-    overflow: hidden;
-}
-#advert div{
-    position: absolute;
-    left: 0;
-    top: 278px;
-    width: 550px;
-    height: 42px;
+#left{
 
-}
-#advert div a{
-    background-color: #444444;
     float: left;
-    color: #FFFFFF;
-    width: 79px;
-    height: 32px;
-    margin-right: 1px;
-    overflow: hidden;
-    padding: 5px 15px;
-    text-align: center;
-    text-decoration: none;
-}
-#advert div a.selected{
-    background: blue;
-}
-#advert div a em{
-    cursor: pointer;
-    display: block;
-    height: 16px;
-    overflow: hidden;
-    width: 79px;
-    font-style:normal;
-}
-
-#news{
+    width: 312px;
+    height: 560px;
     position: relative;
-    left: 762px;
+    margin: 0 11px 0 0;
+    left: 197px ;
     top: 11px;
-    width: 230px;
-    height: 321px;
+    
 }
-#news-content{
-    width: 228px;
-    height: 133px;
-    border: 1px solid #DFDFDF;
+#simg{
+    border: 1px solid grey;
     overflow: hidden;
+    width: 310px;
+    height: 310px;
 }
-#news-content h5{
-    border-bottom:1px solid #DFDFDF;
-    height: 23px;
-    line-height: 23px;
-   text-indent: 12px;
-}
-#news-content ul{
-    padding: 6px 2px 0 12px;
-}
-#news-content a{
-    text-decoration: none;
-    color: grey;
+#left span{
+   float: left;
+    width: 320px;
+    height: 41px;
 
 }
-#brand{
-    width: 790px;
-    height: 230px;
+#left span img{
     position: absolute;
-    left: 199px;
-    top: 335px;
+    left: 34%;
+}
+#small-img{
+    float: left;
+    width: 312px;
+    height: 85px;
     overflow: hidden;
+   
 }
-#brand-tab{
-    width: 790px;
-    height: 30px;
-    margin: 0 auto;
-    border-bottom: 1px solid grey;
-}
-
-#brand-tab h4{
-    height: 30px;
-    line-height: 30px;
+#drag{
     width: 100px;
-}
-#brand-tab ul{
+    height: 100px;
+    background: #cccccc;
     position: absolute;
-    right: 0;
-    top: 10px;
-    width: 216px;
-    height: 23px;
+    top: 0;
+    left: 0;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    display: none;
 }
-#brand-tab ul li{
+.small-img ul{
+    width: 312px;
+    height: 85px;
+
+}
+.small-img ul li{
     float: left;
-    margin: 0 10px 0 0;
-    width: 44px;
-    height: 20px;
-    background: grey;
+    margin-right: 10px;
+    width:85px;
+    height:85px;
+}
+.small-img ul li img{
+    width: 62px;
+    height: 62px;
+}
+
+
+
+
+#brief{
+    width: 310px;
+    height: 230px;
+}
+#brief ul{
+    width: 310px;
+    height: 21px;
+}
+#brief li{
+    float: left;
+    border: 1px solid black;
+    width: 62px;
+    height: 21px;
     text-align: center;
-    line-height: 20px;
+    line-height: 21px;
+    margin-right: 10px;
+    border-bottom: none;
 }
-#brand-tab ul li.selected{
-    background: hotpink;
-}
-#brand-tab ul li a{
-    color: white;
-    text-decoration: none ;
+#brief-content{
+    width: 308px;
+    height: 70px;
+    overflow: hidden;
+    border: 1px solid black;
 
 }
-#brand-content{
-    width: 790px;
-    height: 200px;
-
+#big-img{
+    /*display: none;*/
+    position:absolute;
+    /*opacity: 0;*/
+    left: 522px;
+    width: 468px;
+    height: 432px;
+    /*float: right;*/
+    overflow: hidden;
+    /*background: red;*/
+    top: 11px;
 }
-#brand-img{
-    width: 3200px;
-    height: 188px;
+#big-img div{
+    width: 468px;
+    height: 432px;
+}
+#big-img img{
+    display: none;
     position: absolute;
-    /*overflow: hidden;*/
+    z-index: 111;
 
 }
-#brand-imga{
-    float: left;
-}
-#brand-imgb{
-     float: left;
-}
-#brand-imgc{
-    float: left;
-}
-#brand-imgd{
-    float: left;
-}
+#right{
 
-#brand-img li{
-    width: 195px;
-    height: 188px;
-    float: left;
+    width: 468px;
+    height: 432px;
+    position: relative;
+    float: right;
+    top: 11px;
 }
-
-
-#brand span{
-    /*position: absolute;*/
+#price strong{
+    text-decoration: line-through;
+}
+#sail strong{
+   color: red;
+    font: 24px Tahoma,Arial,Helvetica,sans-serif;
+    font-weight: 700;
+    vertical-align: middle;
+}
+#color li{
+    cursor: pointer;
+}
+.one{
+    height:40px;
+}
+.one li{
     float: left;
-    background-color: #EFEFEF;
-    color: #666666;
-    font-size: 14px;
-    width: 183px;
-    height: 24px;
-    line-height: 24px;
+    margin: 5px 15px;
+    border: 1px solid black;
+    width: 26px;
+    height: 26px;
     text-align: center;
-
+    line-height: 26px;
 }
-#brand span a{
-    text-decoration: none;
+.two{
+    width: 80px;
+    height: 16px;
+    margin: 0 0 20px 0;
 }
+#star .two li{
+    width: 16px;
+    height: 16px;
+    float: left;
+}
+#star .two a{
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin:  0;
+    background: url("../images/star-matrix.gif");
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
+#star #one a.selected{background-position:0px -96px;}
+#star #two a.selected{background-position:0px -112px;}
+#star #three a.selected{background-position:0px -128px;}
+#star #four a.selected{background-position:0px -144px;}
+#star #five a.selected{background-position:0px -160px;}
