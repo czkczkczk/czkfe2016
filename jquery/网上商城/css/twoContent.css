@@ -311,6 +311,9 @@ body{
     text-align: center;
     line-height: 26px;
 }
+#color li.class{
+    border: 1px solid red
+}
 .two{
     width: 80px;
     height: 16px;

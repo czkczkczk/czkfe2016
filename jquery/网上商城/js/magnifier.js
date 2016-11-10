@@ -2,39 +2,36 @@
  * Created by Administrator on 2016/11/7 0007.
  */
 $(function(){
-    var $imgIndex = 0;/*'#simg ÀïdivµÄË÷ÒıÖµ*/
-    var $index = 0;/*'#simg ÀïdivµÄÍ¼Æ¬µÄË÷Òı*/
+    var $imgIndex = 0;/*'#simg é‡Œdivçš„ç´¢å¼•å€¼*/
+    var $index = 0;/*'#simg é‡Œdivçš„å›¾ç‰‡çš„ç´¢å¼•*/
     $('#color li').on('click',function(){
         $index=0;
         $imgIndex=$(this).index();
-       //$('#simg div').eq($imgIndex).find("img").eq(0).show().siblings().hide();Ã»ÓÃ
-        //´Ë´¦ÊÇÊµÏÖÃ¿´Îµã»÷ÑÕÉ«Ñ¡ÏîµÄÊ±ºò£¬ÏÔÊ¾µÄ¶¼ÊÇdivÀïµÄµÚÒ»ÕÅÍ¼Æ¬
+        $(this).addClass('class').siblings().removeClass("class");
+        $('#simg div').eq($imgIndex).find("img").eq(0).show().siblings().hide();
+        //æ­¤å¤„æ˜¯å®ç°æ¯æ¬¡ç‚¹å‡»é¢œè‰²é€‰é¡¹çš„æ—¶å€™ï¼Œæ˜¾ç¤ºçš„éƒ½æ˜¯divé‡Œçš„ç¬¬ä¸€å¼ å›¾ç‰‡
         $('#simg div').eq($imgIndex).show().siblings().hide();
         $('#small-img div').eq($imgIndex).show().siblings().hide();
-
     });
-    /* Í¨¹ıÑ¡ÏîÏÔÊ¾¾Ö²¿Í¼Æ¬´óĞ¡--*/
+    /* é€šè¿‡é€‰é¡¹æ˜¾ç¤ºå±€éƒ¨å›¾ç‰‡å¤§å°--*/
     $('#small-img ul li').on('click',function(){
-        /*´Ë´¦liµÄË÷ÒıÃ¿´Î¶¼¸ü¸Ä*/
+        /*æ­¤å¤„liçš„ç´¢å¼•æ¯æ¬¡éƒ½æ›´æ”¹*/
         $index=$(this).index();
         $('#simg div').eq($imgIndex).find("img").eq($index).show().siblings().hide();
-        //ÕÒµ½#simgÀïdivµÄË÷Òı£¬Í¨¹ıÕÒµ½µÄdivÕÒdivÀïÃæÍ¼Æ¬µÄË÷Òı£¬Õâ¸öË÷Òı¶ÔÓ¦ÉÏÃæliË÷Òı
-        //´Ë´¦»¹ÓĞ±ğµÄĞ´·¨£¬²Î¿¼ºóÃæµÄÆÀ·ÖÏÔÊ¾
-
+        //æ‰¾åˆ°#simgé‡Œdivçš„ç´¢å¼•ï¼Œé€šè¿‡æ‰¾åˆ°çš„divæ‰¾divé‡Œé¢å›¾ç‰‡çš„ç´¢å¼•ï¼Œè¿™ä¸ªç´¢å¼•å¯¹åº”ä¸Šé¢liç´¢å¼•
+        //æ­¤å¤„è¿˜æœ‰åˆ«çš„å†™æ³•ï¼Œå‚è€ƒåé¢çš„è¯„åˆ†æ˜¾ç¤º
     })
-   $('#simg').on('mouseover',function(){
-       $('#drag').show();
-       $("#big-img div").eq($imgIndex).find("img").eq($index).show().siblings().hide();
-   });
+    $('#simg').on('mouseover',function(){
+        $('#drag').show();
+        $("#big-img div").eq($imgIndex).find("img").eq($index).show().siblings().hide();
+    });
     $("#simg").on("mousemove",function(e){
         var $left=$("#simg").offset().left;
         var $top=$("#simg").offset().top;
         var $ll= e.pageX-$left-$("#drag").width()/2;
         var $tt=e.pageY-$top-$("#drag").height()/2;
-        /*ageºÍclientµÄÇø±ğ¾ÍÊÇpageµÄ²ÎÕÕµã²»Ëæ¹ö¶¯Ìõ±ä»¯£¬
-        clientĞèÒª*/
-
-
+        /*ageå’Œclientçš„åŒºåˆ«å°±æ˜¯pageçš„å‚ç…§ç‚¹ä¸éšæ»šåŠ¨æ¡å˜åŒ–ï¼Œ
+         clientéœ€è¦*/
         if($tt<0){
             $tt=0;
         }
@@ -42,7 +39,7 @@ $(function(){
         //if($tt>e.clientY-$top-$("#drag").height()){
         //    $tt=e.clientY-$top-$("#drag").height()
         //}
-        //ÓĞÎÊÌâÓĞÎÊÌâÒòÎªe.clientYÊÇ±äÁ¿
+        //æœ‰é—®é¢˜æœ‰é—®é¢˜å› ä¸ºe.clientYæ˜¯å˜é‡
         if($tt>$('#simg').height()-$("#drag").height()){
             $tt=$('#simg').height()-$("#drag").height()
         }
@@ -53,7 +50,7 @@ $(function(){
             $ll=0
         }
         $("#drag").css({"left":$ll,"top":$tt});
-        //Ò»¶¨ÒªÏÈÉèÖÃ·¶Î§ÔÚÖ´ĞĞ
+        //ä¸€å®šè¦å…ˆè®¾ç½®èŒƒå›´åœ¨æ‰§è¡Œ
         var $fScaleX=$ll/($('#simg').width()-$("#drag").width());
         var $fScaleY=$tt/($('#simg').height()-$('#drag').height());
         $('#big-img div').eq($imgIndex).find('img').eq($index).css('top',-(800-$('#big-img').height())*$fScaleY+ "px");

@@ -99,9 +99,9 @@ body{
 
 
 #nav{
-   position: absolute;
+    position: absolute;
     left:0px;
-   top: 70px;
+    top: 70px;
     width: 990px;
     height: 37px;
     text-indent: 10px;
@@ -185,6 +185,9 @@ body{
     height: 42px;
 
 }
+#advert img{
+    position: absolute;
+}
 #advert div a{
     background-color: #444444;
     float: left;
@@ -195,7 +198,9 @@ body{
     overflow: hidden;
     padding: 5px 15px;
     text-align: center;
+    z-index: 1000;
     text-decoration: none;
+    position: relative;
 }
 #advert div a.selected{
     background: blue;
@@ -226,7 +231,7 @@ body{
     border-bottom:1px solid #DFDFDF;
     height: 23px;
     line-height: 23px;
-   text-indent: 12px;
+    text-indent: 12px;
 }
 #news-content ul{
     padding: 6px 2px 0 12px;
@@ -296,7 +301,7 @@ body{
     float: left;
 }
 #brand-imgb{
-     float: left;
+    float: left;
 }
 #brand-imgc{
     float: left;
