@@ -30,7 +30,7 @@ $(function(){
         a++;
         var $index =$(this).index();
         //alert($index)
-        $(this).addClass('selected').siblings().removeClass().unbind('hover');
+        $(this).addClass('selected').siblings().removeClass();
         $('#advert img').eq($index).css("z-index",a).css("opacity",0).animate({opacity:1},800);
         //alert($('#advert img').index());
     },function(){})
