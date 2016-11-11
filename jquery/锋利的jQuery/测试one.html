@@ -3,8 +3,81 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       li{
+           list-style: none;
+        }
+       #one{
+           width: 300px;
+           height: 200px;
+           background: darkgray;
+           position: relative;
+           margin: 0 auto;
+       }
+        li{
+            float: left;
+            margin-right: 30px;
+           width: 50px;
+            height: 30px;
+            text-align: center;
+        }
+        .showmore{
+            position: absolute;
+            top: 160px;
+            left: 40%;
+        }
+
+    </style>
 </head>
 <body>
+<!--<p class="demo">kdjkfd</p>-->
+    <div id="one">
+        <li>袄袄</li>
+        <li>亲亲</li>
+        <li>玩完</li>
+        <li>恩恩</li>
+        <li>二人</li>
+        <li>亲爱</li>
+        <li>我是</li>
+        <li>二段</li>
+        <li>我的</li>
+        <li>去额</li>
+        <li>耳放</li>
+        <li>如果</li>
+        <li>他狗</li>
+        <li>染发</li>
+        <div class="showmore">
+            <a href="#nogo">显示全部</a>
+        </div>
+    </div>
 
 </body>
+<script src="../jquery-1.12.3.js"></script>
+<script>
+//    $(function(){
+//        $('.demo').on('click',function(){
+//            alert('1231231');
+//        })
+//    })
+  $(function () {
+      $('li:gt(5):not(:last)').hide()
+      $('a').on('click',function(){
+          if($('a').text()=='显示全部'){
+              $('li:gt(5):not(:last)').show();
+              $('a').text('收起');
+          }
+          else if(($('a').text()=='收起')){
+
+                 $('li:gt(5):not(:last)').hide();
+                 $('a').text('显示全部');
+            
+         }
+      })
+
+  })
+</script>
 </html>
