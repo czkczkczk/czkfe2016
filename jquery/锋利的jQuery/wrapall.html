@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #qw{
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <!--1 wrapAll wrapInner区别-->
+    <!--<p>454650</p>-->
+    <!--<strong>564564654</strong>-->
+    <!--<li>5456456</li>-->
+    <!--<p>54654654</p>-->
+    <!--<strong>456465l</strong>strong-->
+
+    <!--2 利用next实现input里的判断-->
+    <!--<input type="text" id="address" value="请输入"/>-->
+    <!--<input type="text" id="password" value="请填写"/>-->
+    <!--<input type="button" value="登录"/>-->
+
+
+    <!--3 给title加div-->
+    <!--<a href="#"title="这是title">title</a>-->
+
+
+</div>
+
+<script src="../jquery-1.12.3.js"></script>
+<script>
+    $(function(){
+/*        1            */
+////        $('strong').wrapAll(' <b></b>')
+////        $('p').wrapInner('strong')
+//        $('p').on('click',function(){
+//            alert( $(this).html())
+//        });
+
+    /*           2         */
+//$('#address').next().on('focus',function(){
+//    if($('#address').next().val()==this.defaultValue){
+//        $('#address').next().val('')
+//    }
+//}).blur(function(){
+//    if($('#address').next().val()==('')){
+//        $('#address').next().val(this.defaultValue)
+//    }
+//})
+
+ /*       3            */
+
+
+//        $('a').hover(function(e){
+//            this.mytitle=this.title;
+//            this.title=''
+//
+//            var $newtitle="<div id='qw'>"+this.mytitle+"</div>"
+//            $('body').append($newtitle);
+//            $('#qw').css({
+//                'left':(e.pageX)+'px',' top': (e.pageY)+'px'
+//            }).show('fast')
+//        },function(){
+//            $('#qw').remove()
+//            this.title=this.mytitle;
+//        }).mousemove(function (e) {
+//            $('#qw').css({
+//                'left':(e.pageX)+'px',' top': (e.pageY)+'px'
+//            })
+//        })
+
+    });
+
+
+</script>
+</body>
+</html>

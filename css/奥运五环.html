@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .circle,.circle::after{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;/*把div变成圆*/
+            border: 10px solid ;
+            position: absolute;
+            content: '';
+        }
+        .blue{
+            border-color: blue;
+        }
+        .blue::after{
+            /*这是伪类选择器   after必须和content一起使用*/
+            border-color:blue;
+            top: -10px;
+            left: -10px;
+            z-index: 1;
+            border-bottom-color: transparent;
+        }
+
+        .yellow{
+            border-color:yellow;
+            top: 0;
+            left: 225px;
+        }
+        .yellow::after{
+            border-color: yellow;
+            top: -10px;
+            left: -10px;
+            z-index: 1;
+            border-left-color: transparent;
+          
+        }
+        .red{
+            border-color: red;
+            top: 0;
+            left: 450px;
+        }
+        .red::after{
+            border-color: red;
+            top: -10px;
+            left: -10px;
+            z-index: 1;
+            border-left-color: transparent;
+        }
+        .green{
+            border-color: green;
+            top: 130px;
+            left: 110px;
+        }
+        .green::after{
+            border-color:green ;
+            top: -10px;
+            left: -10px;
+            z-index: 1;
+            border-right-color: transparent;
+            border-top-color: transparent;
+
+        }
+        .black{
+            border-color: #000;
+            top: 130px;
+            left: 335px;
+        }
+        .black::after{
+            border-color: #000;
+            top: -10px;
+            left: -10px;
+            z-index: 1;
+            border-top-color: transparent;
+            border-right-color: transparent;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="circle blue"></div>
+    <div class="circle yellow"></div>
+    <div class="circle red"></div>
+    <div class="circle green"></div>
+    <div class="circle black"></div>
+</body>
+</html>
