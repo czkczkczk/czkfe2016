@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height: 100%;
+        }
+        /*此处用的是新伸缩盒用法*/
+        body{
+            height: 100%;
+            display:-webkit-flex;
+            -webkit-flex-direction: column;
+        }
+        #header{
+            height: 50px;
+            background: #e1215d;
+        }
+        #content{
+            background: deepskyblue;
+            -webkit-flex-grow:1 ;
+            /*此处是将盒里剩余的部分全给content
+            需要注意的是没有给#content设置固定的高度所以应用自适应实现
+            */
+        }
+        #footer{
+            height: 50px;
+            background: #c152da;
+        }
+        /*下面用的是旧伸缩盒用法*/
+        /* body{
+           display: -webkit-box;
+            -webkit-box-orient: vertical;
+            height: 100%;
+        }
+        #header{
+            height: 100px;
+            background: yellowgreen;
+        }
+        #content{
+            background: #ff00AA;
+           -webkit-box-flex:1
+        }
+        #footer{
+            height: 100px;
+            background: #FFF38F;
+
+        }*/
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="content"></div>
+    <div id="footer"></div>
+</body>
+</html>
