@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            -webkit-perspective: 800px;
+            background: #000;
+
+        }
+        #dice{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: 150px auto;
+            -webkit-transform-style:preserve-3d ;/*让子元素3d效果*/
+            -webkit-animation: aa 6s linear infinite;
+        }
+        @-webkit-keyframes aa {
+            from{
+
+            }
+            to{
+                -webkit-transform: rotateY(-360deg);
+            }
+        }
+        #dice div{
+            width: 300px;
+            height:300px;
+            position: absolute;
+            background: #f6f5f5;
+            font-size:30px;
+            text-align: center;
+            line-height: 300px;
+                /*opacity: 0.6;*/
+            border-radius: 10px;
+        }
+        #six{
+           -webkit-transform: rotateX(-90deg)  translateZ(150px);
+        }
+        #one{
+            -webkit-transform: rotateX(90deg)  translateZ(150px);
+        }
+        #four{
+            -webkit-transform: rotateY(180deg)  translateZ(150px);
+        }
+        #two{
+            -webkit-transform:translateZ(150px) ;
+        }
+        #five{
+            -webkit-transform: rotateY(-90deg)  translateZ(150px);
+        }
+        #three{
+            -webkit-transform: rotateY(90deg)  translateZ(150px);
+        }
+        img{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dice">
+        <div id="one"><img src="骰子img/one.jpg" alt=""/></div>
+        <div id="two"><img src="骰子img/two.jpg" alt=""/></div>
+        <div id="three"><img src="骰子img/three.jpg" alt=""/></div>
+        <div id="four"><img src="骰子img/four.jpg" alt=""/></div>
+        <div id="five"><img src="骰子img/five.jpg" alt=""/></div>
+        <div id="six"><img src="骰子img/six.jpg" alt=""/></div>
+    </div>
+</body>
+</html>
