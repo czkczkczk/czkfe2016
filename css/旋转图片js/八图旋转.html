@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            -webkit-perspective: 800px;
+
+        }
+        #contains{
+            width: 150px;
+            height: 267px;
+            position: relative;
+            margin: 100px auto;
+
+        }
+        #content{
+            width: 150px;
+            height: 267px;
+            position: absolute;
+            -webkit-transform-style:preserve-3d ;
+
+        }
+
+        #content img{
+            width: 150px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #five{
+            /*-webkit-animation: five 4s ease forwards ;*/
+
+        }
+        /*@-webkit-keyframes five {*/
+            /*from{*/
+
+            /*}*/
+            /*to{*/
+                /*-webkit-transform:  rotateY(180deg) translateZ(200px);*/
+            /*}*/
+        /*}*/
+        #one{
+
+            /*-webkit-animation: one 4s ease forwards ;*/
+        }
+        /*@-webkit-keyframes one {*/
+            /*from{*/
+
+            /*}*/
+            /*to{*/
+                /*-webkit-transform:   rotateY(360deg) translateZ(200px);*/
+            /*}*/
+        /*}*/
+        #six{
+            /*-webkit-animation: six 4s ease forwards ;*/
+
+        }
+        /*@-webkit-keyframes six {*/
+            /*from{*/
+
+            /*}*/
+            /*to{*/
+                /*-webkit-transform: rotateY(225deg) translateZ(200px);*/
+            /*}*/
+        /*}*/
+        #two{
+            /*-webkit-animation: two 4s ease forwards ;*/
+
+        }
+        /*@-webkit-keyframes two {*/
+            /*from{*/
+
+            /*}*/
+            /*to{*/
+                /*-webkit-transform: rotateY(45deg) translateZ(200px);*/
+            /*}*/
+        /*}*/
+        #seven{
+            /*-webkit-animation: seven 4s ease forwards ;*/
+
+        }
+        /*@-webkit-keyframes seven {*/
+            /*from{*/
+
+            /*}*/
+            /*to{*/
+                /*-webkit-transform: rotateY(270deg) translateZ(200px);*/
+            /*}*/
+        /*}*/
+        #three{
+            /*-webkit-animation: three 4s ease  forwards;*/
+
+        }
+        /*@-webkit-keyframes three {*/
+            /*from{*/
+
+            /*}*/
+            /*to{*/
+                /*-webkit-transform: rotateY(90deg) translateZ(200px);*/
+            /*}*/
+        /*}*/
+        #eight{
+            /*-webkit-animation: eight 4s ease  forwards;*/
+
+        }
+        /*@-webkit-keyframes eight {*/
+            /*from{*/
+
+            /*}*/
+            /*to{*/
+                /*-webkit-transform: rotateY(315deg) translateZ(200px);*/
+            /*}*/
+        /*}*/
+        #four{
+            /*-webkit-animation: four  4s ease forwards ;*/
+
+        }
+        /*@-webkit-keyframes four {*/
+            /*from{*/
+
+            /*}*/
+            /*to{*/
+                /*-webkit-transform: rotateY(135deg) translateZ(200px);*/
+            /*}*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+    <div id="contains">
+       <div id="content">
+           <img id="one" src="1.jpg" alt=""/>
+           <img id="two" src="2.jpg" alt=""/>
+           <img id="three" src="3.jpg" alt=""/>
+           <img id="four" src="4.jpg" alt=""/>
+           <img id="five" src="5.jpg" alt=""/>
+           <img id="six" src="6.jpg" alt=""/>
+           <img id="seven" src="7.jpg" alt=""/>
+           <img id="eight" src="8.jpg" alt=""/>
+
+       </div>
+    </div>
+    <script src="../../jquery/jquery-1.12.3.js"></script>
+    <script>
+        $(function () {
+            var a;
+            var b=0;
+            var c=0;
+            for(a=0;a<8;a++){
+                b=a*45;
+                $('#content img').eq(a).css({'-webkit-transition': '4s ease',"-webkit-transform":' rotateY('+b+'deg) translateZ('+200+'px)'});
+
+                console.log(b)
+            }
+            $('#content img').each(function(index,img){
+                $(img).css('z-index', ($('#content img').size() - index));
+            });
+            $('#content img').on('click', function () {
+                c=c+45;
+                $('#content').css("-webkit-transform",' rotateY('+c+'deg)');
+
+            })
+        })
+    </script>
+</body>
+</html>
