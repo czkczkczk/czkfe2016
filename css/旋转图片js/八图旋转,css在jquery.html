@@ -152,20 +152,23 @@
             var a;
             var b=0;
             var c=0;
-            for(a=0;a<8;a++){
-                b=a*45;
-                $('#content img').eq(a).css({'-webkit-transition': '4s ease',"-webkit-transform":' rotateY('+b+'deg) translateZ('+200+'px)'});
-
-                console.log(b)
+            $('#content img')  .on('click',function(){
+                for(a=1;a<8;a++){
+                    $('#content img').eq(0).css({'-webkit-transition': '4s ease',"-webkit-transform":' rotateY('+360+'deg) translateZ('+200+'px)'});
+                    b=a*45;
+                    $('#content img').eq(a).css({'-webkit-transition': '4s ease',"-webkit-transform":' rotateY('+b+'deg) translateZ('+200+'px)'});
             }
+                return false;
+            })
+
             $('#content img').each(function(index,img){
                 $(img).css('z-index', ($('#content img').size() - index));
             });
-            $('#content img').on('click', function () {
+            $('html').on('click', function () {
                 c=c+45;
                 $('#content').css("-webkit-transform",' rotateY('+c+'deg)');
-
             })
+            return false;
         })
     </script>
 </body>
