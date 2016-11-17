@@ -166,7 +166,7 @@
 
                 }
                 $('#content ').off('click');
-                $('html').on('click', function () {
+                $('#content').on('click', function () {
                     c=c+45;
                     $('#content ').css("-webkit-transform",' rotateY('+c+'deg)');
                 })
