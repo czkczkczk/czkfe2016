@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            -webkit-perspective: 800px;
+            -webkit-perspective-origin: 50% -20%;
+
+        }
+        #contains{
+            width: 50px;
+            height:50px;
+            border-radius: 50%;
+            position: relative;
+            margin: 500px 1200px;
+
+        }
+        #content{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            -webkit-transform-style:preserve-3d ;
+
+
+
+
+        }
+
+        #content img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        /*#content img:hover{*/
+            /*width: 60px;*/
+            /*height: 60px;*/
+        /*}*/
+        /*#content img:nth-child(1):hover{*/
+            /*width: 50px;*/
+            /*height: 50px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="contains">
+    <div id="content">
+        <img id="one" src="1.jpg" alt=""/>
+        <img id="two" src="2.jpg" alt=""/>
+        <img id="three" src="3.jpg" alt=""/>
+        <img id="four" src="4.jpg" alt=""/>
+        <img id="five" src="5.jpg" alt=""/>
+        <img id="six" src="6.jpg" alt=""/>
+
+    </div>
+</div>
+<script src="../../jquery/jquery-1.12.3.js"></script>
+<script>
+$(function () {
+
+    var tag=0;/*以此判断事件执行过没有*/
+    $('#content img').each(function(index,img){
+        $(img).css('z-index', ($('#content img').size() - index));
+    })
+    $('#content img').eq(0).on('click', function () {
+        if(tag==0){
+                    for(var a=1;a<6;a++){
+                        $('#content img').eq(0).css({
+                            '-webkit-transition': 'transform 4s ease',
+                            "-webkit-transform":'  translateX('+0+'px) translateY('+0+'px)  rotate('+-180+'deg)'});
+                        $('#content img').eq(a).css({
+                            '-webkit-transition': 'transform 4s ease',
+                            "-webkit-transform":'  translateX('+(-200+((a-1)*50))+'px) translateY('+(-((a-1)*50))+'px)  rotate('+180+'deg)'});
+
+                        };
+                    tag=1;
+                 }else {
+                    for(a=1;a<6;a++) {
+                            $('#content img').eq(0).css({
+                                '-webkit-transition': 'transform 4s ease',
+                                "-webkit-transform":'  translateX('+0+'px) translateY('+0+'px)  rotate('+00+'deg)'});
+                            $('#content img').eq(a).css({
+                                '-webkit-transition': 'transform 4s ease',
+                                "-webkit-transform": '  translateX(' + (0) + 'px) translateY(' + (0) + 'px)  rotate(' + (360) + 'deg)'
+                            });
+                        }
+                        tag=0;
+                       };
+
+       });
+    $('#content img:not(#one)').click( function () {
+               if(tag==0){
+                   $(this).css({'width':60, 'height':60});
+                   tag=1;
+               }else{
+                   $(this).css({'width':50, 'height':50});
+                   tag=0;
+               }
+            });
+
+
+    });
+
+</script>
+</body>
+</html>
