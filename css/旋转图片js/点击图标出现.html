@@ -28,9 +28,6 @@
             position: absolute;
             -webkit-transform-style:preserve-3d ;
 
-
-
-
         }
 
         #content img{
@@ -54,12 +51,12 @@
 <body>
 <div id="contains">
     <div id="content">
-        <img id="one" src="1.jpg" alt=""/>
-        <img id="two" src="2.jpg" alt=""/>
-        <img id="three" src="3.jpg" alt=""/>
-        <img id="four" src="4.jpg" alt=""/>
-        <img id="five" src="5.jpg" alt=""/>
-        <img id="six" src="6.jpg" alt=""/>
+        <img id="one" src="图片img/1.jpg" alt=""/>
+        <img id="two" src="图片img/2.jpg" alt=""/>
+        <img id="three" src="图片img/3.jpg" alt=""/>
+        <img id="four" src="图片img/4.jpg" alt=""/>
+        <img id="five" src="图片img/5.jpg" alt=""/>
+        <img id="six" src="图片img/6.jpg" alt=""/>
 
     </div>
 </div>
@@ -68,29 +65,31 @@
 $(function () {
 
     var tag=0;/*以此判断事件执行过没有*/
+    var tab=0;
     $('#content img').each(function(index,img){
         $(img).css('z-index', ($('#content img').size() - index));
     })
     $('#content img').eq(0).on('click', function () {
+        console.log('ddddddddddddddddddddddddddddddddd');
         if(tag==0){
                     for(var a=1;a<6;a++){
                         $('#content img').eq(0).css({
-                            '-webkit-transition': 'transform 4s ease',
-                            "-webkit-transform":'  translateX('+0+'px) translateY('+0+'px)  rotate('+-180+'deg)'});
+                            '-webkit-transition': 'transform 2s ease',
+                            "-webkit-transform":'  translateX('+0+'px) translateY('+0+'px)  rotate('+360+'deg)'});
                         $('#content img').eq(a).css({
-                            '-webkit-transition': 'transform 4s ease',
-                            "-webkit-transform":'  translateX('+(-200+((a-1)*50))+'px) translateY('+(-((a-1)*50))+'px)  rotate('+180+'deg)'});
+                            '-webkit-transition': 'transform 2s ease',
+                            "-webkit-transform":'  translateX('+(-200+((a-1)*50))+'px) translateY('+(-((a-1)*50))+'px)  rotate('+360+'deg)'});
 
                         };
                     tag=1;
                  }else {
                     for(a=1;a<6;a++) {
                             $('#content img').eq(0).css({
-                                '-webkit-transition': 'transform 4s ease',
-                                "-webkit-transform":'  translateX('+0+'px) translateY('+0+'px)  rotate('+00+'deg)'});
+                                '-webkit-transition': 'transform 2s ease',
+                                "-webkit-transform":'  translateX('+0+'px) translateY('+0+'px)  rotate('+0+'deg)'});
                             $('#content img').eq(a).css({
-                                '-webkit-transition': 'transform 4s ease',
-                                "-webkit-transform": '  translateX(' + (0) + 'px) translateY(' + (0) + 'px)  rotate(' + (360) + 'deg)'
+                                '-webkit-transition': 'transform 2s ease',
+                                "-webkit-transform": '  translateX(' + (0) + 'px) translateY(' + (0) + 'px)  rotate(' + (0) + 'deg)'
                             });
                         }
                         tag=0;
@@ -98,14 +97,15 @@ $(function () {
 
        });
     $('#content img:not(#one)').click( function () {
-               if(tag==0){
+               if(tab==0){
                    $(this).css({'width':60, 'height':60});
-                   tag=1;
+                   tab=1;
                }else{
                    $(this).css({'width':50, 'height':50});
-                   tag=0;
+                   tab=0;
                }
             });
+
 
 
     });
