@@ -42,7 +42,16 @@
             -webkit-transition: opacity 1.5s ease-in-out;
             /*background: url(img/1.jpg) 0px 0px no-repeat;*/
         }
-
+        /*#header{*/
+            /*width:200px;*/
+            /*height: 100px;*/
+            /*position: absolute;*/
+            /*top: 0;*/
+            /*left: 50%;*/
+            /*margin-left:-100px ;*/
+            /*display: none;*/
+            /*background: red;*/
+        /*}*/
         #next,#prev{
             width: 50px;
             height: 80px;
@@ -62,15 +71,16 @@
             left:0;
         }
 
+
     </style>
 </head>
 <body>
 
-<div id="container">
-
-</div>
+<div id="container"></div>
 <div id="next"></div>
 <div id="prev"></div>
+
+<!--<div id="header">凯莱酒店空间大水库</div>-->
 <script>
 
     var oContainer = document.getElementById('container');
@@ -78,14 +88,15 @@
     var oNext = document.getElementById('next');
     var sum = 0;
     var iNow = 0;
+    var oHeader = document.getElementById('header');
 
     for(var i=0;i<24;i++){
-        var oImg = new Image();
+        var oImg = new Image();//定义一个图片类型对象
         oImg.onload = function(){
             sum++;
             if(sum == 48){
                 //图片全部加载完成，执行动画
-                loadSuccess();
+                loadSuccess();//自定义的一个函数
             }
         }
         oImg.src = 'img/'+(i+1)+'.jpg';
@@ -102,6 +113,7 @@
         }
         oImg.src = 'img/thumbs/'+(i+1)+'.jpg';
     }
+
     //获取行高 和 列宽
     var colWidth = (oContainer.offsetWidth - 6 * 125)/7;
     var rowHeight = (oContainer.offsetHeight - 4 * 125)/5;
@@ -115,7 +127,7 @@
                 var oDiv = document.createElement('div');
                 oDiv.className = 'img';
                 oDiv.pos = {
-                    //计算每张图片的目标位置
+                    //利用定位，计算每张图片的目标位置
                     left: colWidth + j*(125 + colWidth),
                     top: rowHeight + i*(125 + rowHeight)
                 };
@@ -128,6 +140,7 @@
                 oDiv.imgIndex = index;
 
                 oDiv.style.background = 'url(img/thumbs/'+(index+1)+'.jpg)';
+
                 //给每个div绑定一个点击事件
                 oDiv.onclick = fn;
                 oDiv.innerHTML = "<span></span>";
@@ -143,13 +156,13 @@
             aDiv[index].style.left = aDiv[index].pos.left + 'px';
             aDiv[index].style.top = aDiv[index].pos.top + 'px';
             //随机生成-20 到 +20之间的随机数，设置旋转角度
-            aDiv[index].style.WebkitTransform = "rotate("+ parseInt((Math.random() * 40 - 20))+"deg)";
+            aDiv[index].style.WebkitTransform = "rotate("+ (Math.random() * 40 - 20)+"deg)";
             if(index == 0){
                 clearInterval(timer);
             }
         },100);
 
-        var bFlag = true;//判断div是不是点过。
+        var bFlag = true;//判断div是不是点过，标位符。
 
         //给每个div绑定一个点击事件
         function fn(){
@@ -165,7 +178,8 @@
 
                     var oSpan = aDiv[i].getElementsByTagName('span')[0];
                     oSpan.style.opacity = 1;
-                    //取出点击图片的索引
+                    //取出点击图片的索引,
+                    //利用css小精灵定位大图片
                     var spanLeft = -aDiv[i].rowCol.col * 125;
                     var spanTop = -aDiv[i].rowCol.row * 125;
                     oSpan.style.background = 'url(img/'+(this.imgIndex+1)+'.jpg) '+spanLeft+'px '+spanTop+'px no-repeat';
@@ -173,6 +187,8 @@
                 iNow = this.imgIndex;
                 oNext.style.display = 'block';
                 oPrev.style.display = 'block';
+//                oHeader.style.display = 'block';
+
             }else{
                 for(var i=0;i<24;i++){
                     aDiv[i].style.left = aDiv[i].pos.left + 'px';
@@ -184,9 +200,11 @@
                 }
                 oNext.style.display = 'none';
                 oPrev.style.display = 'none';
+//                oHeader.style.display = 'none';
             }
             bFlag = !bFlag;
         }
+//点击左右箭头控制大图片切换
         oNext.onclick = oPrev.onclick = function(){
             if(this==oNext){
                 iNow++;
@@ -199,12 +217,25 @@
                     iNow = aDiv.length - 1;
                 }
             }
+//此处利用sort，pop实现小div的随机顺序变换
+            var orr = [];
             for(var i=0;i<aDiv.length;i++){
-                var oSpan = aDiv[i].getElementsByTagName('span')[0];
-                var spanLeft = -aDiv[i].rowCol.col * 125;
-                var spanTop = -aDiv[i].rowCol.row * 125;
-                oSpan.style.background = 'url(img/'+(iNow+1)+'.jpg) '+spanLeft+'px '+spanTop+'px no-repeat';
+                orr.push(i)
             }
+            orr.sort(function(a,b){
+                return Math.random()-0.5;
+            })
+            //设置定时器，让每个div的变换有时间间隔
+            var timer2 = setInterval(function(){
+                var random = orr.pop()//pop() 方法用于删除并返回数组的最后一个元素。
+                var oSpan = aDiv[random].getElementsByTagName('span')[0];
+                var spanLeft = -aDiv[random].rowCol.col * 125;
+                var spanTop = -aDiv[random].rowCol.row * 125;
+                oSpan.style.background = 'url(img/'+(iNow+1)+'.jpg) '+spanLeft+'px '+spanTop+'px no-repeat';
+                if(orr.length==0){
+                    clearInterval(timer2)
+                }
+            },30);
         }
 
 
