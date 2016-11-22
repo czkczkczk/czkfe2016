@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="aa">111</div>
+<div class="aa">222</div>
+<div class="aa">333</div>
+<div id="div1" class="a b c"></div>
+<script>
+    var oA = document.querySelector('.aa');
+    //匹配指定css选择器的第一个元素 <div class="aa">111</div>;
+    console.log(oA)
+    var aA = document.querySelectorAll('.aa')
+    // 是 HTML5中引入的新方法，返回文档中匹配的CSS选择器的所有元素节点列表
+    console.log(aA)
+</script>
+</body>
+</html>

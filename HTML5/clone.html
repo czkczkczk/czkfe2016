@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var qwe = {
+        name:'aaa',
+        age:44,
+        son:{
+            name:'ww'
+        }
+    }
+//    var qqq=qwe;
+//    qwe.son.name='ee';
+//    console.log(qqq.son.name)
+    var qqq = clone(qwe);
+    qwe.son.name = 'ed';
+    function clone (qwe){
+        var qqq ={};
+        /*p是属性*/
+       for(p in qwe){
+           if(typeof qwe[p] == 'object'){
+               qqq[p]=clone(qwe[p]);
+           }else{
+               qqq[p]=qwe[p]
+           }
+       }
+        return qqq;
+    }
+    console.log(qqq.son.name)
+</script>
+</body>
+</html>

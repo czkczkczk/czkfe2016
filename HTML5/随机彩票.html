@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <button id="btn">生成彩票数</button>
+    <div id="div1"> </div>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oDiv = document.getElementById('div1');
+        var obj = {};
+        oBtn.onclick = function(){
+            var arr = [];//定义一个空数组
+            var hash =parseInt((Math.random() * 100));//定义一个hash，加毛点，形成历史记录
+            for(var i=0;i<7;i++){
+                var num =Math.floor(Math.random()*35)+1;
+                arr.push(num);//把数加入空数组中
+            }
+            location.hash = hash;
+            obj[hash] = arr;
+//            obj = {
+//                0.43936300086049496:[5,26,24,20,33,10,7],
+//                0.439363000860494444:[8,26,24,20,33,10,7]
+//            }
+            console.log(obj[hash])
+            oDiv.innerHTML = arr;
+        };
+
+        window.onhashchange = function(){
+            /*当hash值改变时执行onhashchange*/
+            var nowHash = location.hash;
+            /*获取当前hash值*/
+            var str = obj[nowHash.substr(1)];
+            /*obj.hash.substr(1)原本是这么写，因为hash.substr(1)是变量所以用[]
+             * hash.substr(1)是obj里的属性名
+             *  var str是获取obj里hash.substr(1)属性的值*/
+            //console.log(obj[hash.substr(1)]);
+            if(str){
+                oDiv.innerHTML = str
+            }else{
+                oDiv.innerHTML = '到头了老弟'
+            }
+        }
+    </script>
+</body>
+</html>
