@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    sessionStorage.setItem('name','45');
+    //sessionStorage用于本地存储一个会话（session）中的数据,关闭网页就没
+    localStorage.setItem('qw','545')
+    //localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
+    sessionStorage.removeItem('name')
+    //清除'name'
+    sessionStorage.clear()
+    //全清除
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            background: #ffffff;;
+
+        }
+        body{
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="400"></canvas>
+<script>
+    var oCanvas = document.getElementById('canvas');
+    var cxt = oCanvas.getContext('2d');
+
+    oCanvas.onmousedown = function(e) {
+        cxt.moveTo(e.clientX, e.clientY);
+        oCanvas.onmousemove = function(e) {
+            cxt.lineTo(e.clientX, e.clientY);
+            cxt.stroke();
+        }
+
+    }
+    oCanvas.onmouseup = function(){
+        oCanvas.onmousemove=null
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //    document.cookie = 'name=lisi;expires='+date;
+    //expires='+date;设置的是保存期限,如果不设置期限，它默认的是关闭网页就没有
+    //设置cookie
+    setCookie('name','aa');
+    function setCookie(key,value,day){
+        var str =key+'='+value+';';
+        if(day){
+           var now = new Date();
+            //获取当前的日期
+            now.setDate(now.getDate()+day);
+            //这个设置的是保存期限
+            str += 'expires='+now;
+            //str=str+'expires='+now
+        }
+        document.cookie=str;
+    };
+    //获取cookie
+    console.log(getCookie('name'));
+    //这个需要获取的参数name，在下面key代表的就是name
+    function getCookie(key){
+        var str = document.cookie;
+        //age=14; name=aa;  ['age=14', 'name=aa']
+        var arr = str.split('; ');
+        //此处split分割的一定要有空格，因为document.cookie获取的里面自带一个空格
+        for(var i= 0;i<arr.length;i++){// ['age=14','name=aa']
+            var arr1 = arr[i].split('=');
+            if(arr1[0] == key){
+                return arr1[0];
+            }
+        }
+    }
+
+
+   //移除cookie
+    remove('name');
+    function remove(key){
+        setCookie(key,'value',-1);
+    }
+    //在这里把时间期限写成-1，就意味着过期了
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form id="form1" action="index.php">
+    用户名：<input id="username" type="text"/></br></br>
+    密码：<input id="password" type="text"/></br></br>
+    两周免登陆<input id="check" type="checkbox"/>
+    <!--<submit id="btn">登录</submit>-->
+    <input id="btn" type="submit"/>
+</form>
+
+<script>
+    var oBtn = document.getElementById('btn');
+    var oCheck = document.getElementById('check');
+    var oUserName = document.getElementById('username');
+    var oForm1 = document.getElementById('form1');
+    var oPwd = document.getElementById('password');
+//    //原生代码获取cookie
+//    setCookie('name','qq');
+//    function setCookie(key,value,day){
+//        var str = key+'=value'+';';
+//        if(day){
+//            var now = new Date();
+//            now.setDate(now.getDate()+day);
+//            str = str+'expires='+day;
+//        }
+//        document.cookie=str
+//    }
+</script>
+</body>
+</html>
