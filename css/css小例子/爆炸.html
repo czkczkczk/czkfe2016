@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        span{
+            background: #000;
+            color: #f6f5f5;
+            position: absolute;
+            top: 400px;
+        }
+        img{
+            width: 500px;
+        }
+        #container{
+            position: relative;
+        }
+        #container img{
+            margin: 50px auto;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -250px;
+        }
+        #left{
+            left: 45%;
+        }
+        #right{
+            right: 45%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="img">
+            <img src="1.jpg" alt=""/>
+        </div>
+        <div class="img">
+            <img src="2.jpg" alt=""/>
+        </div>
+        <div class="img">
+            <img src="3.jpg" alt=""/>
+        </div>
+        <div class="img">
+            <img src="4.jpg" alt=""/>
+        </div>
+    </div>
+    <span id="right">爆炸</span>
+    <span id="left">旋转</span>
+    <script>
+        var oContainer = document.getElementById('container');
+        var aDiv =  oContainer.getElementsByTagName('div');
+//        var oSpan=document.createElement('span');
+       aDiv.innerHTML = "<span></span>";
+
+    </script>
+</body>
+</html>
