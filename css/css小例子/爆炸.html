@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -9,55 +8,120 @@
             margin: 0;
             padding: 0;
         }
-        span{
-            background: #000;
-            color: #f6f5f5;
-            position: absolute;
-            top: 400px;
-        }
-        img{
-            width: 500px;
-        }
         #container{
+            width: 750px;
+            height: 600px;
+            margin: 20px auto;
             position: relative;
         }
-        #container img{
-            margin: 50px auto;
+        #img{
+            width: 750px;
+            height: 500px;
+            background: url("1.jpg");
+            position: relative;
+        }
+
+        #btn{
             position: absolute;
-            top: 0;
             left: 50%;
-            margin-left: -250px;
+            margin-left: -80px;
+            bottom: 20px;
+
         }
-        #left{
-            left: 45%;
-        }
-        #right{
-            right: 45%;
+        #btn1,#btn2{
+            width: 60px;
+            height: 40px;
+            margin-right: 20px;
+
         }
     </style>
 </head>
 <body>
     <div id="container">
-        <div class="img">
-            <img src="1.jpg" alt=""/>
-        </div>
-        <div class="img">
-            <img src="2.jpg" alt=""/>
-        </div>
-        <div class="img">
-            <img src="3.jpg" alt=""/>
-        </div>
-        <div class="img">
-            <img src="4.jpg" alt=""/>
+        <div id="img"></div>
+        <div id="btn">
+            <button id="btn1">旋转</button>
+            <button id="btn2">爆炸</button>
         </div>
     </div>
-    <span id="right">爆炸</span>
-    <span id="left">旋转</span>
+
     <script>
         var oContainer = document.getElementById('container');
-        var aDiv =  oContainer.getElementsByTagName('div');
-//        var oSpan=document.createElement('span');
-       aDiv.innerHTML = "<span></span>";
+        var oImg = document.getElementById('img')
+        var oBtn1 = document.getElementById('btn1');
+        var oBtn2 = document.getElementById('btn2');
+        var iNow = 0;
+        //点击旋转按钮
+        oBtn1.onclick = function(){
+            oImg.innerHTML = '';
+            iNow++;
+            oImg.style.background = 'url('+(iNow)+'.jpg)'
+            if(iNow == 4){
+                iNow = 0;
+            }
+            for(var i=0;i<4;i++){
+                for(var j=0;j<6;j++){
+                    var oDiv = document.createElement('div');
+                    oDiv.style.width = '125px';
+                    oDiv.style.height = '125px';
+                    oDiv.style.position = 'absolute';
+                    oDiv.style.left = j*125+'px';
+                    oDiv.style.top = i*125+'px';
+                    oDiv.style.background = 'url('+(iNow+1)+'.jpg) '+(-j*125)+'px '+(-i*125)+'px';
+                    oDiv.style.webkitTransform = 'rotateY(-180deg)';
+                    oDiv.style.webkitTransition = 'all 1s ease'
+                    oDiv.style.webkitBackfaceVisibility = 'hidden'
+                    //制定背面不可见
+                    oImg.appendChild(oDiv);
+                }
+            };
+            var aDiv = oImg.getElementsByTagName('div');
+            var index = 0;
+            var timer = setInterval(function(){
+                aDiv[index].style.WebkitTransform = 'rotateY(0deg)';
+                index++;
+                if(index==24){
+                    clearInterval(timer);
+                }
+            },30)
+        };
+        //点击爆炸按钮
+        oBtn2.onclick = function () {
+            oImg.innerHTML = '';
+            iNow++;
+            for(var i=0;i<4;i++){
+                for(var j=0;j<6;j++){
+                    var oDiv = document.createElement('div');
+                    oDiv.style.width = '125px';
+                    oDiv.style.height = '125px';
+                    oDiv.style.position = 'absolute';
+                    oDiv.style.left = j*125+'px';
+                    oDiv.style.top = i*125+'px';
+                    oDiv.style.background = 'url('+ (iNow) +'.jpg) '+ (-j*125) +'px '+ (-i*125) +'px';
+                    oDiv.style.WebkitTransition = 'all 1s ease';
+                    oImg.appendChild(oDiv);
+                }
+            }   ;
+            if(iNow == 4){
+                iNow=0
+            }
+            oImg.style.background = 'url('+(iNow+1)+'.jpg)';
+            var index = 0;
+            var aDiv = oImg.getElementsByTagName('div')
+            var timer = setInterval(function () {
+                aDiv[index].style.left = random(-500,1000)+'px';
+                aDiv[index].style.top = random(-500,1000)+'px';
+                aDiv[index].style.WebkitTransform = 'rotateY(360deg) scale(2)';
+                aDiv[index].style.opacity = 0;
+                index++;
+                if(index ==24){
+                    clearInterval(timer);
+                }
+            },0)
+        };
+        function random(x,y){
+            return Math.floor(Math.random()* (y-x+1) + x);
+        }
 
     </script>
 </body>
