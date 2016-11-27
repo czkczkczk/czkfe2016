@@ -1,0 +1,16 @@
+本地储存
+一
+    Cookie：可以设置过期时间
+    sessionStorage：浏览器一关闭就消失
+   localStorage：一直都在，除非自己调用localStorage.clear（）方法可以清除，还有localStorage.removeItem（’name‘）也可以
+
+ 二
+    Cookie一般较小，大约4kb左右，有的浏览器Cookie只能存储20条数据，会有限制
+    sessionStorage和localStorage大约5M；
+ 三
+ Cookie的缺点：不安全，可以在谷歌chrome里的控制台Application里看见，存储小， cookie会随着每次请求发送到后台；；
+         Cookie在HTML5之后很少用到
+
+
+         虽然HTML5提供了功能强大的localStorage和sessionStorage，但是他们两个都只能提供存储简单的数据结构的数据，
+         对于复杂的Web应用数据却无能为力

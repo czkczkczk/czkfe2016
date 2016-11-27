@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 300px;
+            height: 395px;
+            margin: 50px auto;
+            -webkit-perspective: 800px;
+        }
+        #img img{
+            width: 300px;
+            height: 395px;
+            -webkit-animation: show 1.2s ease-in forwards;
+            -webkit-transform-origin: bottom;
+            -webkit-transform: rotateX(180deg);
+            opacity: 0;
+        }
+        @-webkit-keyframes show {
+            0%{
+            }
+            57%{
+                -webkit-transform: rotateX(-16deg);
+            }
+            66%{
+                -webkit-transform: rotateX(14deg);
+            }
+            74%{
+                -webkit-transform: rotateX(-12deg);
+            }
+            81%{
+                -webkit-transform: rotateX(10deg);
+            }
+            88%{
+                -webkit-transform: rotateX(-8deg);
+            }
+            92%{
+                -webkit-transform: rotateX(6deg);
+            }
+            96%{
+                -webkit-transform: rotateX(-4deg);
+            }
+            100%{
+                -webkit-transform: rotateX(0deg);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="img">
+            <img src="img/zxy1.jpg" alt=""class="show"/>
+        </div>
+    </div>
+</body>
+</html>
