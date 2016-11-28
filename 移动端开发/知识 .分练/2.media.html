@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<link rel="stylesheet" href="css1.css"/>-->
+    <!--<link rel="stylesheet" href="css2.css" media="print"/>-->
+    <!--media 媒体 print打印，引如两个css文件-->
+    <!--media="print"意思是当打印此文件时引入css2.css，body背景颜色为红色-->
+    <!--两种方法-->
+    <style>
+        body{
+            background: green;
+        }
+        /*media query 媒体查询*/
+        /*@media print 在打印情况下*/
+        /*@media 后面写限制条件 例如（max-width：500px）宽度小于500px的时候*/
+        /*breakpoint：1200 992 768 480 320常见断点*/
+        /*768是ipad*/
+        @media print {
+            body{
+                background: red;
+            }
+        }
+
+        @media (max-width: 800px) {
+            body {
+                background: #000;
+            }
+        }
+
+        @media (orientation:portrait) {
+            body{
+                background: #000;
+            }
+        }
+
+        @media (orientation: landscape) {
+            body {
+                background: yellow;
+            }
+        }
+        /*orientation浏览器窗口的方向纵向还是横向*/
+        /*orientation:portrait是纵向*/
+        /*orientation: landscape是横向*/
+    </style>
+</head>
+<body>
+
+</body>
+</html>

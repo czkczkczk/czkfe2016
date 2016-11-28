@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h3{
+            width: 960px;
+            height: 100px;
+            margin: 50px auto;
+            background: #dcdcdc;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 100px;
+        }
+        #img{
+            width: 960px;
+            height: 539px;
+            background: url("01.jpg")no-repeat;
+            margin: 0 auto;
+        }
+        #content{
+            width: 960px;
+            margin: 0 auto;
+        }
+        #left{
+            width: 630px;
+            float: left;
+            background: yellow;
+        }
+        #right{
+            width: 300px;
+            float: right;
+            background: green;
+        }
+        #left,#right{
+            display: table;
+            height: 300px;
+        }
+        #left p,#right p{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        #footer{
+            clear: both;
+        }
+        @media (max-width: 960px){
+            h3{
+                width: 100%;
+            }
+            #content{
+                width: 100%;
+            }
+            #left{
+                width: 67%;
+            }
+            #right{
+                width: 30%;
+            }
+            #img{
+                background: url("01.960.jpg") no-repeat center;
+                height: 0;
+                width: 100%;
+                padding-top: 56%;
+                background-size:cover ;
+                /*此处把高度设置为0，用padding-top撑起高度，值为图片的（高度比宽度），*/
+                /*并且让背景图片center，而且给背景图片设置size值为cover覆盖，背景图才会跟随浏览器改变而改变
+                */
+            }
+        }
+        /*上面设置过的相同的属性不会继承到下面，每一个都要单独设置
+        但是因为max-width: 960px是小于960的都会执行，max-width: 480px也是小于960所以执行，
+        至于为什么#img还要设置，是因为下面设置的会覆盖上面的*/
+        @media (max-width: 480px) {
+            #left,#right{
+                width: 100%;
+            }
+            #img{
+                background: url("01.480.jpg") no-repeat center;
+                height: 0;
+                width: 100%;
+                padding-top: 56%;
+                background-size:cover ;
+                /*此处把高度设置为0，用padding-top撑起高度，值为图片的（高度比宽度），*/
+                /*并且让背景图片center，而且给背景图片设置size值为cover覆盖，背景图才会跟随浏览器改变而改变*/
+
+            }
+        }
+    </style>
+</head>
+<body>
+<h3 id="header">头部</h3>
+<h3 id="title">标题</h3>
+<div id="img">
+
+</div>
+<div id="content">
+    <div id="left">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.
+        </p>
+    </div>
+    <div id="right">
+        <p>Donec dolor arcu, interdum sed turpis faucibus, placerat ultricies felis. Donec pulvinar gravida rhoncus. Suspendisse vestibulum est eget dolor lobortis.</p>
+    </div>
+</div>
+<h3 id="footer">尾部</h3>
+
+</body>
+</html>

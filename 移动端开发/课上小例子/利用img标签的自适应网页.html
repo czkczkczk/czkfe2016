@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h3{
+            margin: 50px auto;
+            background: #dcdcdc;
+            text-align: center;
+            width: 960px;
+            height: 100px;
+            line-height: 100px;
+            border-radius: 20px;
+        }
+        #img{
+            width: 960px;
+            margin: 0 auto;
+        }
+        #img img{
+            width: 960px;
+        }
+        #content{
+            width: 960px;
+            background: green;
+            margin: 0 auto;
+        }
+        #left,#right{
+            display: table;
+            height: 300px;
+        }
+        #left p,#right p{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        /*此处是设置多行文字垂直水平居中*/
+        #left{
+            float: left;
+            background: green;
+            width: 67%;
+            /*类似此处设置百分比而不用固定px，是为了缩小浏览器时，它会自适应而不是固定大小而导致不改变*/
+        }
+        #right{
+            float: right;
+            background: yellow;
+            width: 30%;
+        }
+        #footer{
+            clear: both;
+        }
+        @media (max-width: 960px) {
+            h3{
+                width: 100%;
+            }
+            #img{
+                width: 100%;
+            }
+            /*此处在上面的的#img就没有设置高度，高度是靠图片撑出来的*/
+            #img img{
+                width: 100%;
+                max-width: 100%;
+                /*此处设置最大宽度的100%是相对图片本身，意思是无论怎么扩大浏览器图片最大的宽度就是原本的宽度*/
+                /*是为了防止图片放大失真*/
+            }
+            #content{
+                width: 100%;
+            }
+            
+        }
+        @media (max-width: 480px) {
+            #content{
+                width: 100%;
+            }
+            #left,#right{
+                /*float: none;*/
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h3 id="header">头部</h3>
+    <h3 id="title">标题</h3>
+    <div id="img">
+        <img src="01.jpg" alt=""/>
+    </div>
+    <div id="content">
+        <div id="left">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.
+            </p>
+        </div>
+        <div id="right">
+            <p>Donec dolor arcu, interdum sed turpis faucibus, placerat ultricies felis. Donec pulvinar gravida rhoncus. Suspendisse vestibulum est eget dolor lobortis.</p>
+        </div>
+    </div>
+    <h3 id="footer">尾部</h3>
+
+
+</body>
+</html>
