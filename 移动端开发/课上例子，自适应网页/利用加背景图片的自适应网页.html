@@ -24,8 +24,9 @@
         #img{
             width: 960px;
             height: 539px;
-            background: url("01.jpg")no-repeat;
+            background: url("01.jpg")no-repeat center ;
             margin: 0 auto;
+            background-size: cover;
         }
         #content{
             width: 960px;
@@ -85,11 +86,11 @@
                 width: 100%;
             }
             #img{
-                background: url("01.480.jpg") no-repeat center;
-                height: 0;
-                width: 100%;
-                padding-top: 56%;
-                background-size:cover ;
+                background-image: url("01.480.jpg");
+                /*height: 0;*/
+                /*width: 100%;*/
+                /*padding-top: 56%;*/
+                /*background-size:cover ;*/
                 /*此处把高度设置为0，用padding-top撑起高度，值为图片的（高度比宽度），*/
                 /*并且让背景图片center，而且给背景图片设置size值为cover覆盖，背景图才会跟随浏览器改变而改变*/
 
