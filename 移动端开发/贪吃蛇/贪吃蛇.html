@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 1000px;
+            height: 550px;
+            margin: 0 auto;
+            border: 1px solid crimson;
+        }
+        #ground{
+            width: 1000px;
+            height: 500px;
+            /*background: yellow;*/
+            position: relative;
+        }
+        #banner{
+            width: 1000px;
+            height: 50px;
+            line-height: 50px;
+        }
+        #ads{
+            float: left;
+        }
+        #button{
+            float: right;
+        }
+        .block{
+            width: 20px;
+            height: 20px;
+            background: yellow;
+            float: left;
+        }
+        .snake{
+            background: red;
+            position: absolute;
+        }
+        .food{
+            background: deepskyblue;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div id="container">
+    <div id="ground"></div>
+    <div id="banner">
+        <div id="ads">贪吃蛇</div>
+        <div id="button">
+            <button id="start">开始</button>
+            <button id="stop">暂停</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //创建操场
+    var oGround = document.getElementById('ground');
+    for(var i=0;i<50*25;i++){
+       var oDiv =  document.createElement('div');
+        oDiv.className = 'block';
+        oGround.appendChild(oDiv)
+    }
+
+        //创建蛇
+    var snakeBody = [];
+    function createSnake(){
+        for(var i=0;i<3;i++){
+            var oSnake =  document.createElement('div');
+            oSnake.className = 'block snake';
+            oSnake.style.left = 60-i*20+'px';
+            oSnake.style.top = 60+'px';
+            oGround.appendChild(oSnake);
+            snakeBody.push(oSnake);
+        }
+    }
+        //创建食物
+        var oFood = null;
+        function createFood(){
+            var iLeft;
+            var iTop;
+            var bFlag = false;
+
+            do{
+                bFlag = false;
+                iLeft = parseInt(Math.random()*50)*20;
+                iTop = parseInt(Math.random()*25)*20;
+                for(var i=0;i<snakeBody.length;i++){
+                    if(iLeft == snakeBody[i].offsetLeft&&iTop == snakeBody[i].offsetTop){
+                        bFlag = true
+                    }
+
+                }
+            }while(bFlag);
+
+            oFood = document.createElement('div');
+            oFood.className = 'block food';
+            oFood.style.left = iLeft+'px';
+            oFood.style.top = iTop+'px';
+            oGround.appendChild(oFood)
+        }
+//       createFood();
+        //蛇移动
+        //就是让蛇尾移动到蛇头的位置。这样就不用定位蛇身体的每一块
+        var next = null;
+        //下一块的位置
+        var direction = 'right';
+        //定义默认方向是right
+        //下面的函数就是让蛇尾移动到蛇头的位置
+        function move(){
+            var snakeHead = snakeBody[0];
+            //这就是蛇头
+            if(direction == 'right'){
+                next = {
+                    top:snakeHead.offsetTop,
+                    left:snakeHead.offsetLeft + 20
+                }
+            }else if(direction == 'left'){
+                next = {
+                    top:snakeHead.offsetTop,
+                    left:snakeHead.offsetLeft - 20
+                }
+            }else if(direction == 'up'){
+                next = {
+                    top:snakeHead.offsetTop - 20,
+                    left:snakeHead.offsetLeft
+                }
+            }else if(direction == 'down'){
+                next = {
+                    top:snakeHead.offsetTop + 20,
+                    left:snakeHead.offsetLeft
+                }
+            }
+
+
+            //蛇吃食物，增长身体
+            if(oFood.offsetLeft == next.left&&oFood.offsetTop == next.top){
+                oFood.className = 'block snake';
+                snakeBody.unshift(oFood);
+                createFood();
+                //吃的时候不执行下面的移动
+            }
+            else{
+                //吃完之后执行移动
+                //取出身体数组中的最后一个就是蛇尾，添加到前面变成蛇头用的是unshift
+                var oDiv = snakeBody.pop();
+                oDiv.style.left = next.left+'px';
+                oDiv.style.top = next.top+'px';
+                snakeBody.unshift(oDiv);
+            }
+
+            //蛇吃自己死
+            for(var i=5;i<snakeBody.length;i++){
+                //每次都重新定义蛇头
+                snakeHead = snakeBody[0];
+                if(snakeHead.offsetLeft == snakeBody[i].offsetLeft&&snakeHead.offsetTop == snakeBody[i].offsetTop){
+                    clearInterval(timer);
+                    alert('自己咬到自己死了')
+                }
+            }
+            //蛇橦墙
+            if(snakeHead.offsetLeft < 0||snakeHead.offsetLeft> 980||snakeHead.offsetTop < 0||snakeHead.offsetTop > 480){
+                clearInterval(timer);
+                alert('你撞墙死了')
+            }
+
+        }
+
+    var timer;
+//        var timer = setInterval(move,200);
+        //控制蛇移动方向
+        document.onkeydown = function (e) {
+            e = e || window.event;
+            var key = e.which || e.keyCode;
+            if(key == 37 && direction!='right'){
+                //控制向左的时候，他现在的方向要是向右就不好使，限制条件
+                //下同
+                direction = 'left';
+            }else if(key == 38 && direction!='down'){
+                direction = 'up';
+            }else if(key == 39 && direction!='left'){
+                direction = 'right';
+            }else if(key== 40 && direction!='up'){
+                direction = 'down';
+            }
+
+        }
+
+   var oStart = document.getElementById('start');
+    var oStop = document.getElementById('stop');
+    var bStop = 0;
+    var bStart = 0;
+    //巧妙利用标识符，我给标识符赋予三个值，判断不同的情况
+    //我要实现的功能是，每次点击开始都会重新开始，在暂停之后再点击开始，会继续原来的位置
+
+    oStart.onclick = function(){
+        if(bStart==0&&bStop == 0){
+            createFood();
+            createSnake();
+            bStart = 1;
+        }
+        if(bStart == 1&&bStop == 0){
+            //清除食物和蛇身
+            oGround.removeChild(oFood);
+            clearInterval(timer);
+            //清除定时器，否则会加速
+            for(var i=0;i<snakeBody.length;i++){
+                oGround.removeChild(snakeBody[i]);
+            }
+            //还要清除snakebody数组
+            snakeBody = [];
+            direction = 'right'
+            createFood();
+            createSnake();
+            timer = setInterval(move,200);
+        }
+        if(bStop == 1&&bStart == 2){
+                timer = setInterval(move,200);
+                bStop = 0;
+                bStart = 1;
+        }
+    };
+
+    oStop.onclick = function(){
+        if(bStop == 0){
+            clearInterval(timer);
+            bStop = 1;
+            bStart = 2;
+        }
+    }
+</script>
+</body>
+</html>
