@@ -12,7 +12,7 @@
             width: 1000px;
             height: 550px;
             margin: 0 auto;
-            border: 1px solid crimson;
+            border: 1px solid yellow;
         }
         #ground{
             width: 1000px;
@@ -24,6 +24,8 @@
             width: 1000px;
             height: 50px;
             line-height: 50px;
+            background: #a98e67;
+            border-bottom: 1px solid #a98e67;
         }
         #ads{
             float: left;
@@ -54,7 +56,7 @@
 <div id="container">
     <div id="ground"></div>
     <div id="banner">
-        <div id="ads">贪吃蛇</div>
+        <div id="ads">贪吃蛇 by CZK</div>
         <div id="button">
             <button id="start">开始</button>
             <button id="stop">暂停</button>
@@ -90,7 +92,8 @@
             var iLeft;
             var iTop;
             var bFlag = false;
-
+//先生成一个食物，但是判断不能出现在蛇身的位置，一旦出现在蛇身位置，重新生出食物
+            //do while
             do{
                 bFlag = false;
                 iLeft = parseInt(Math.random()*50)*20;
@@ -205,8 +208,9 @@
 
     oStart.onclick = function(){
         if(bStart==0&&bStop == 0){
-            createFood();
             createSnake();
+
+            createFood();
             bStart = 1;
         }
         if(bStart == 1&&bStop == 0){
@@ -220,8 +224,8 @@
             //还要清除snakebody数组
             snakeBody = [];
             direction = 'right'
-            createFood();
             createSnake();
+            createFood();
             timer = setInterval(move,200);
         }
         if(bStop == 1&&bStart == 2){

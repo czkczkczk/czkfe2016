@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li class="c abc b">001</li>
+    <li>002
+        <span class="a">jjj</span></li>
+    <li class="a">003</li>
+</ul>
+
+<script>
+
+
+    function getClassName(clsName,content){
+        content = content ||document;
+        if(document.getElementsByClassName){
+            return content.getElementsByClassName(clsName);
+        }else{
+            var arr = [];
+            var all = content.getElementsByTagName('*');
+            var reg = new RegExp('\\b'+clsName+'\\b');
+            for(var i = 0;i<all.length;i++){
+                if(reg.test(all[i].className)){
+                    arr.push(all[i])
+                }
+            };
+            return arr;
+        }
+    }
+    var oUl = document.getElementsByTagName('ul')[0];
+   var aLi =  getClassName('a',oUl);
+    for(var i = 0;i<aLi.length;i++){
+        aLi[i].style.background = 'red'
+    }
+</script>
+</body>
+</html>

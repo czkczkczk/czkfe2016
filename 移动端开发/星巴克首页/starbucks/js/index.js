@@ -22,4 +22,6 @@ $(function(){
         iLeft = $(".slide-box").width()-$(".slide-box ul").width();
         $(".slide-box ul").css('left',iLeft);
     });
-})
+})/**
+ * Created by Administrator on 2016/12/4 0004.
+ */
