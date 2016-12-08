@@ -1,0 +1,26 @@
+JS框架requirejs
+它是个js文件
+它的作用就是解决模块加载的问题
+
+要用requirejs的话首先要引用require.js这个文件
+   1.<script src="js/require.js" data-main="js/index"></script>
+   2.data-main 后面写的入口文件，必须有
+
+
+index.js里require([当前引文件,另外一个js文件], function (前面文件所引入的返回值,后面文件的返回值){}
+
+
+
+
+新用到的两个jquery用法
+1  $.extend   把后面的往前面的合并（目标，参数）
+      $.extend(defaultSettings, settings);
+2  .load()
+    从服务器载入数据并且将返回的HTML的代码并插入至匹配的元素中
+     示例： this.defaultSettings = {
+                width: 400,
+                height: 300,
+                title: "弹出层",
+                content: "login2.html"
+            };
+     this.$content.load(this.defaultSettings.content);
