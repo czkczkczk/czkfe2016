@@ -16,7 +16,7 @@ require(['jquery','dialog'], function ($,Dialog) {
         var dialog = new Dialog(settings);
         dialog.open();
         var dialog2 = new Dialog();
-        dialog2.open()
+        dialog2.open();
 
     });
 });
