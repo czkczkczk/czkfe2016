@@ -408,3 +408,16 @@ body{
 #menu1 .two:hover{
     color: #a98e67;
 }
+#menu1 ul>li{
+    position: relative;
+}
+#menu1 span{
+    border-width: 5px;
+    border-color:white transparent transparent transparent ;
+    border-style: solid;
+    position: absolute;
+    right: 5px;
+    top: 25px;
+    
+}
+

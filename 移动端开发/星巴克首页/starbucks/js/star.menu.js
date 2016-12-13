@@ -3,7 +3,7 @@
  */
 $(function () {
     eventType = isMobile()?'tap':'click';
-    var click = 0;
+
     //判断点击事件是pc端还是移动端
     //isMobile()已经在前面定义过了
    $('#menu').on(eventType,function(){
@@ -39,18 +39,23 @@ $(function () {
             marginRight : "hide"
         }, speed, callback);
     }
-
+//子菜单
+    $('.two').each(function(){
+        this.click=0;
+    })
+    //var click = 0;
     $('.two').on(eventType, function () {
-        if(click == 0){
-            $(this).find('ul a').css('display','block')
-            console.log(1)
-            click = 1
+        //this.click=1;
+        if(this.click == 0){
+            $(this).find('ul a').css('display','block');
+            $('#menu1').css('height','auto');//高度变成auto，根据内容自适应
+            this.click = 1
         }
         else{
-            $(this).find('ul a').css('display','none')
-            console.log(2)
-            click = 0
-        }
+            $(this).find('ul a').css('display','none');
+            $('#menu1').css('height','100%');
+            this.click = 0;
+        };
     })
 
 })
