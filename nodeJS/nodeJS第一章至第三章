@@ -77,4 +77,12 @@ Node.js两大明显优势
            2.description：包的简要说明
            3.version（版本）：符合语义化版本识别规范的版本字符串。
            4.keywords：关键字数组，通常用于搜索。
-           5.
+           5.maintainers:维护者数组，每个元素要包含name、email（可选）、web（可选）字段。
+           6.contributors:贡献者数组，格式与maintainers相同。包的作者应该是贡献者数组的第一个元素 。
+           7.bugs:提交bug的地址，可以是网址或者电子邮件地址。
+           8.licenses:许可证数组，每个元素要包含type（许可证的名称）和url（链接到许可证文本的地址）字段
+           9.dependencies（依赖）：包的依赖，一个关联数组，由包名称和版本号组成。
+    6.Node.js包管理器
+       npm是Node.js官方提供的包管理工具，他已经成为Node.js包的标准发布平台，用于Node.js包的发布、传播、依赖控制。
+       npm提供了命令行工具，是你可以方便的下载、安装、升级、删除包，
+      1.获取一个包

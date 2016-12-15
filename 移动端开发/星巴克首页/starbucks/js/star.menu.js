@@ -41,7 +41,7 @@ $(function () {
     }
 //子菜单
     $('.two').each(function(){
-        this.click=0;
+        this.click=0;//自定义标识符
     })
     //var click = 0;
     $('.two').on(eventType, function () {

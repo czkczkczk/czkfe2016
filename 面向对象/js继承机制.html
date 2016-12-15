@@ -22,7 +22,7 @@
     };
 //    ClassA.prototype.sayColor();
     ClassA.prototype = new ClassA();
-    ClassA.prototype.sayColor()
+    ClassA.prototype.sayColor();
 //然后再ClassB的构造函数中使用ClassA.call(this)来继承ClassA中的属性；
  function ClassB() {
      ClassA.call(this);
