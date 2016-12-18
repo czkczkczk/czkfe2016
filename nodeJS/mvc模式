@@ -1,0 +1,13 @@
+
+
+  MVC(Model View Controller  模型视图控制器)
+  model可以说是datamodel数据模型
+  也就是说model跟数据操作有关
+
+在myblog里有三文件夹  1.controllers（自己新建的）
+                     2.models（自己新建的）
+                     3.views（node自带的）
+                     数据库有一张表就要有一个controller文件和model文件
+
+      由路由文件转发业务逻辑请求到控制器文件，由控制器来负责具体操作
+      model永远是纯净的数据库操作
