@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+ 
+        MVC(Model View Controller  模型视图控制器)
+        model可以说是datamodel数据模型
+        也就是说model跟数据操作有关
+
+        在myblog里有三文件夹  1.controllers（自己新建的）
+        2.models（自己新建的）
+        3.views（node自带的）
+        数据库有一张表就要有一个controller文件和model文件
+
+        由路由文件转发业务逻辑请求到控制器文件，由控制器来负责具体业务逻辑操作
+        model永远是纯净的数据库操作
+        只要是请求都进路由
+
+
+        js里只能判断一个变量是否有值，不能判断这个变量是否声明
+
+
+        SQL
+        增  insert
+        删  delete
+        改  update
+        查  select
+
+
+
+        流程：路由  控制器  model
+        控制器(controllers)：控制整个业务流程跳转的，
+        主要工作：1.接收用户传过来的数据
+        2.数据验证，保证数据安全性
+        3.如果涉及数据库操作连接数据库
+        4.响应：给用户返回结果（成功或失败）
+
+        1.所有 业务逻辑、跳转 跳转放到控制器下。
+        2.控制器的方法要暴漏出来 例如： exports.login=function(){
+        function(req,res){
+        res.render('/login')
+        }
+        };
+
+        3.(1)在路由里引入控制器     例如:  var user = require('../controllers/user')
+        (2) 在转发这个控制器      例如:  router.get('/login',user.login)   //这个位置只是转发这个方法让别人执行，自己并不执行，所以不加括号不是user.login()
+        (3) 路由router里的每个请求的路径一定要对应好，，将这个请求转发给router的第二个参数（某一个控制器下的某一个方法）
+
+        (4) 接受数据  get和post是两种写法  例如:  var username = req.body.uname;（post请求的写法）
+        var username = req.query.uname（get请求的写法）
+
+        4.数据验证...
+        5.（1） 连接数据库，所有的数据库操作（增删改查）都放在模型下（mvc的model）
+        （2）把公共要用的数据库配置信息提取出来，单独放在models下的db.js文件里，防止多次写代码
+        var mysql = require('mysql');
+        var pool  = mysql.createPool({
+        connectionLimit : 10,
+        host            : 'localhost',
+        user            : 'root',
+        password        : '',
+        database        : 'myblog'
+        });
+        这里建立的是数据库连接池pool
+        （3）在userModel文件引入这个db.js    var db = require('./db')
+        （4）  一旦涉及到数据库操作，就要从控制器中调model了  （这样做的好处是将数据库中代码和控制器代码进一步分离）
+        数据库中（增删改查）的方法写法规范
+        查    例： exports.queryByNamePwd = function(username,password){};
+        （建议这么写，简单明了）  方法中的参数是你查询操作的根据
+
+        (5)在控制器文件中引入model
+        var userModel = require('../models/userModel');
+        在控制器文件中调用数据库的方法，完成查询操作
+        userModel.queryByNamePwd(username, password, function (rows) {}
+</body>
+</html>
