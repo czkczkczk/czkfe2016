@@ -5,7 +5,7 @@
     <title></title>
 </head>
 <body>
- 
+
         MVC(Model View Controller  模型视图控制器)
         model可以说是datamodel数据模型
         也就是说model跟数据操作有关
@@ -65,14 +65,21 @@
         });
         这里建立的是数据库连接池pool
         （3）在userModel文件引入这个db.js    var db = require('./db')
-        （4）  一旦涉及到数据库操作，就要从控制器中调model了  （这样做的好处是将数据库中代码和控制器代码进一步分离）
+        （4）  一旦涉及到数据库操作，就要从controllers（控制器）中调model了  （这样做的好处是将数据库中代码和控制器代码进一步分离）
         数据库中（增删改查）的方法写法规范
-        查    例： exports.queryByNamePwd = function(username,password){};
+        查    例： exports.queryByNamePwd = function(username,password,callback){};
         （建议这么写，简单明了）  方法中的参数是你查询操作的根据
 
-        (5)在控制器文件中引入model
-        var userModel = require('../models/userModel');
-        在控制器文件中调用数据库的方法，完成查询操作
-        userModel.queryByNamePwd(username, password, function (rows) {}
+        (5) 1.在控制器文件（users.js）中引入model
+              var userModel = require('../models/userModel');
+            2.在users.js中调用userModel的方法，完成查询操作
+              userModel.queryByNamePwd(username, password, function (rows) {};
+            3.把userModel中的查询操作逻辑放到db.js中，
+              在db.js中exports.query = function(sql,callback){};（暴露查询）（里面是pool的规定语法，并且在function中function在传回调函数callback）
+              在userModel中调用db.query(sql,param,callback);
+
+ req.session.自己存个属性名  例：req.session.loginUser
+        req.session是对象用来存数据的，存了个属性loginUser
+
 </body>
 </html>
