@@ -19,7 +19,9 @@ exports.query = function (sql,param,callback) {
             if(err){
                 throw  err;
             }
-            callback && callback(rows);
+             if(callback){
+                 callback(rows);
+             };
             connection.release();
         });
     });

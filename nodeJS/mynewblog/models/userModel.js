@@ -29,3 +29,4 @@ exports.save = function (username, password, email, callback) {
     var sql = 'insert into t_user(username, password, email) values(?,?,?)';
     db.query(sql, [username, password, email], callback);
 };
+

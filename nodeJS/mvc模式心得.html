@@ -53,6 +53,9 @@
         var username = req.query.uname（get请求的写法）
 
         4.数据验证...
+
+    此处就是根据用户名和密码 连上数据库进行查询
+
         5.（1） 连接数据库，所有的数据库操作（增删改查）都放在模型下（mvc的model）
         （2）把公共要用的数据库配置信息提取出来，单独放在models下的db.js文件里，防止多次写代码
         var mysql = require('mysql');

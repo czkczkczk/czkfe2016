@@ -7,6 +7,13 @@ var userModel = require('../models/userModel');
 exports.login = function(req, res){
     res.render('login');
 };
+//logout,点击退出操作
+exports.logout = function(req,res){
+    req.session.loginUser = null;
+    //在点击退出之后把上一次登陆存好的用户session清除，以免浏览器没关闭时，在打开主页用户名还存在。
+    res.redirect('/login');//exports.login(req,res);
+};
+
 exports.reg = function(req, res){
     res.render('reg');
 };
@@ -39,11 +46,11 @@ exports.checkLogin = function(req, res){
         //    create_time: null } ]
         if(rows.length > 0){
             var user = rows[0];
-            req.session.loginUser = user;
+            req.session.loginUser = user;//在req.session下存了自定义属性，session代表一个会话，用来存数据的，关闭浏览器就没
             //用rows[0]里获取的值赋值给session，在session里存起来，在routes里index.js能够用这个参数
-            res.redirect('/');
-            // redirect是重新定向，只有一个参数，这个参数是路径
-            //这里用redirect重新定向是为了登陆成功之后，可以跳转到原来的跟路径界面
+            res.redirect('/adminIndex');
+            // redirect是重新定向，只有一个参数，这个参数是路径，重定向:相当于在服务器端发送请求
+            //这里用redirect重新定向是为了登陆成功之后，可以跳转到adminIndex界面
 
          //res.render('index', {uname: username});
             //如果用这个render方法，会跳转到checkLogin
@@ -67,7 +74,7 @@ exports.regist = function(req,res){
     if(pwd != pwd2){
         res.render('reg');
     }
-    userModel.save(name, pwd, email, function (rows) {
+    userModel.save(name, pwd, email, function (rows) {//function中的参数是查询结果集，是个数组
         console.log(rows);
 //此时的rows发生了变化，因为增删改查所以参数也会不同
 //        OkPacket {
@@ -87,3 +94,5 @@ exports.regist = function(req,res){
         }
     });
 };
+
+
