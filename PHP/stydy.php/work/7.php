@@ -2,7 +2,7 @@
     session_start();
     $result = [];
     if(isset($_SESSION['user'])){
-        $result = $_SESSION['user'] ;
+        $result = $_SESSION['user'] ;//把一个名为user的session赋值给$result
 
     }
 //如果已经有session 了，就直接把新建好的数据存到已经存在session里，如果没有这个判断，每次都是替换session原有的数据
@@ -14,7 +14,7 @@
         $arr[] = $name;
         $arr[] = $age;
         $result[] = $arr;
-        $_SESSION['user']=$result;
+        $_SESSION['user']=$result;//定义一个名为user的session，里面的值是$result
 
 
     };
