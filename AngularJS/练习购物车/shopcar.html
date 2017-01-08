@@ -3,11 +3,11 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="angularjs/bootstrap3/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../angularjs/bootstrap3/css/bootstrap.css"/>
 </head>
-<body ng-app="">
+<body ng-app=""><!--ng中的app相当于一个模块module，每个app中和可以定义多个controller，它们之间有各自的作用域空间，不干扰-->
     <div class="container" ng-controller="firstController"> <!--class类container自动居中，bootstrap特性-->
-        <table class="table">
+        <table class="table" ng-show="data.length">
             <thead>
                 <tr>
                     <th>产品编号</th>
@@ -22,13 +22,19 @@
                 <tr ng-repeat="item in data"><!--从data中循环输出item-->
                     <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
-                    <td><input type="text" ng-model="item.num"/></td>
+
+                    <td>
+                        <button type="button" class="btn btn-info" ng-click="reduce(item.id)">-</button>
+                        <input type="text" ng-model="item.num"/>
+                        <button type="button" class="btn btn-info" ng-click="add(item.id)">+</button>
+                    </td>
+
                     <!--ng-model 指令可以将输入域的值与 AngularJS 创建的变量绑定
                     双向绑定，在修改输入域的值时， AngularJS 属性的值也将修改：-->
                     <td>{{item.price}}</td>
                     <td>{{item.num*item.price}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger">移除</button>
+                        <button type="button" class="btn btn-danger" ng-click="del(item.id)">移除</button>
                     </td>
                 </tr>
                 <tr>
@@ -37,17 +43,17 @@
                     <td>总购买数:</td>
                     <td>{{totalnum()}}</td>
                     <td colspan="2">
-                        <button type="button" class="btn-danger">清空购物车</button>
+                        <!--<button type="button" class="btn-danger" ng-click="data={}">清空购物车</button>把data中的数据清空-->
+                        <button type="button" class="btn-danger" ng-click="empty()">清空购物车</button>
                     </td>
                 </tr>
             </tbody>
         </table>
-
-
+        <p ng-show="!data.length">清空购物车</p>
     </div>
 
 
-<script src="angularjs/angular-1.2.18/angular.js"></script>
+<script src="../angularjs/angular-1.2.18/angular.js"></script>
 <script src="controller.js"></script>
 </body>
 </html>
