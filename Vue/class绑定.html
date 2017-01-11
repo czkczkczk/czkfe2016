@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .red{
+            color: red;
+        }
+        .yellow{
+            background: #a98e67;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--<h4 v-bind:class="[redClass,yellowClass]">qwer</h4>-->
+        <!--<h4 v-bind:class="objClass">wewe</h4>-->
+        <h4 v-bind:class="{red:isRed,yellow:isYellow}">wewe</h4>
+    </div>
+
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+//            redClass:"red",//"red"css里面定义的类名
+//            yellowClass:"yellow"
+
+
+//            objClass:{
+//                red:true,
+//                yellow:true
+//            }
+            isRed:true,
+            isYellow:false
+        }
+
+    })
+</script>
+</body>
+</html>

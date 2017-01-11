@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <!--<p v-bind:style="objStyle">dfdfdsfds</p>-->
+
+        <!--<p v-bind:style="{color:colorStyle,'font-size':sizeStyle}">dfdfdsfds</p>-->
+        <p v-bind:style="[colorStyle,sizeStyle]">dfdfdsfds</p>
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+//                objStyle:{
+//                    color:"red",
+//                    "font-size    ":"40px"
+//                }
+
+//                colorStyle:"red",
+//                sizeStyle:"40px"
+
+                colorStyle:{
+                    color:"red"
+                },
+                sizeStyle:{
+                    'font-size':"40px"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

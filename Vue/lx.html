@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        div{
+            width: 400px;
+            height: 400px;
+            margin: 200px auto;
+        }
+        li{
+            width:150px;
+            margin-top: 20px;
+            height: 20px;
+            line-height: 20px;
+            color: white;
+        }
+        li span{
+            float: right;
+        }
+        .red{
+            background: red;
+        }
+        .green{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="car">
+       <!--<ul >-->
+           <!--<li v-for="item in items" v-bind:style="item.colorStyle" v-on:click="add(item.colorStyle)">-->
+               <!--{{item.name}}-->
+               <!--<span>{{item.price}}</span>-->
+           <!--</li>-->
+       <!--</ul>-->
+        <!--总价: {{count()}}-->
+
+        <!--方法2-->
+     <ul >
+      <!--<li v-for="item in items" v-bind:class="{green:item.active,red:!item.active}" v-on:click="item.active =! item.active">-->
+         <li v-for="item in items" v-bind:class="{green:item.active,red:!item.active}" v-on:click="change(item)">
+         {{item.name}}
+             <span>{{item.price}}</span>
+          </li>
+        </ul>
+        总价: {{count()}}
+
+    </div>
+
+<script src="vue.js"></script>
+<!--<script>-->
+
+    <!--var ali = document.getElementsByTagName("li");-->
+    <!--console.log(ali);-->
+    <!--var vm = new Vue({-->
+        <!--el:"#car",-->
+        <!--data:{-->
+            <!--items:[-->
+                <!--{name:"aa",price:100,colorStyle:{background:"green"}},-->
+                <!--{name:"bb",price:100,colorStyle:{background:"green"}},-->
+                <!--{name:"cc",price:100,colorStyle:{background:"green"}},-->
+                <!--{name:"dd",price:100,colorStyle:{background:"green"}},-->
+                <!--{name:"ee",price:100,colorStyle:{background:"green"}}-->
+
+            <!--]-->
+        <!--},-->
+        <!--methods:{-->
+            <!--add:function(item){-->
+
+                <!--if(item.background=="green"){-->
+                    <!--item.background="red";-->
+<!--//                    xx = 0;-->
+<!--//                   this.count = this.items[0].price*5;-->
+                <!--}else{-->
+                   <!--item.background="green";-->
+                    <!--xx = 1;-->
+                <!--}-->
+            <!--},-->
+            <!--count:function(){-->
+                <!--var count = 0;-->
+                <!--this.items.forEach(function(item){-->
+                    <!--if(item.colorStyle.background == "red"){-->
+                        <!--count += item.price;-->
+                    <!--}-->
+                <!--});-->
+                <!--return count;-->
+            <!--}-->
+        <!--}-->
+
+
+    <!--})-->
+<!--</script>-->
+    <script>
+        var vm = new Vue({
+            el:"#car",
+            data:{
+                items:[
+                    {name:"aa",price:100,active:true},
+                    {name:"bb",price:100,active:true},
+                    {name:"cc",price:100,active:true},
+                    {name:"dd",price:100,active:true},
+                    {name:"ee",price:100,active:true}
+                ]
+            },
+            methods:{
+                change: function (item) {
+                    item.active = !item.active;
+                },
+                count:function(){
+                    var count = 0;
+                    this.items.forEach(function(item){
+                        if(item.active == false){
+                            count += item.price;
+                            console.log(count)
+                        }
+                    })
+                    return count
+                }
+            }
+        })
+    </script>
+</body>
+</html>

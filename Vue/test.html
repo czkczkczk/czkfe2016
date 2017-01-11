@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="one">
+        {{message}}
+        <input type="text" v-model="message"/>
+        <div v-html="mel">
+            v-html:解析变量里html的内容，并且div里所有的html内容都会被v-html解析的内容覆盖
+            所以这里所写的字不会显示
+        </div>
+    </div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#one",
+       data:{//必须写data
+           message:"qwe",
+           mel:"<h1>czk</h1>"
+       }
+    });
+</script>
+</body>
+</html>

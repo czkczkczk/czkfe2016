@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="message += 1">ddd</button>
+    <input type="text" v-model="message"/>
+
+    <button v-on:click="greet">event</button>
+
+    <button v-on:click="say('asd')">lang</button>//asd必须加引号当成字符串传进去，否则asd会被当成data的一个变量
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:0
+
+        },
+        methods:{
+            greet:function(event){
+                alert(event.target.tagName);
+            },
+            say:function(lang){
+                alert(lang)
+            }
+        }
+    })
+</script>
+</body>
+</html>
