@@ -75,7 +75,7 @@ function firstController ($scope) {
         if($scope.data[id1].num>1){
             $scope.data[id1].num -= 1;
         }else{
-            confirm("删除商品？")
+            confirm("删除商品？");
             $scope.del(id);
         }
 
@@ -89,7 +89,7 @@ function firstController ($scope) {
                 index = key;
             }
 
-        });
+        });v
         return index;
         //console.log(index);
     }
