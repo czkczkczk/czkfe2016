@@ -1,0 +1,72 @@
+@import "public";//引入别的scss文件
+/*嘻嘻*/
+/*圣诞卡*/
+$color:black;
+$font:30px;
+$font:20px !default;//默认值
+$bg:background;
+
+body{
+  #{$bg}: $color;
+  color: #000066;
+  font:18px/#{$font} AvenirLight;
+  div{
+    color: $color;
+    a{
+      color: $color;
+      &:hover{ //伪类嵌套&
+        color: #a98e67;
+      }
+    }
+    b{
+      color: $color;
+    }
+  }
+}
+
+.#{$bg}{
+  #{$bg}:$color;
+  padding: {
+     top:10px;
+    bottom: 10px;
+  }
+
+}
+@mixin border($col1,$col2){//@mixin混合宏
+  border: 1px solid $col1;
+  -webkit-box-shadow: 2px 2px 2px 2px $col2;
+  -moz-box-shadow:2px 2px 2px 2px $col2 ;
+  -ms-box-shadow: 2px 2px 2px 2px $col2;
+  box-shadow: 2px 2px 2px 2px $col2;
+}
+.aa{
+ @include border(#000,#565);
+}
+.bb{
+  @include border(#000,#565);
+}
+%placeholder{//占位符
+  width: 20px;
+  height: 50px;
+}
+.cc{
+  color: #0000AA;
+  @extend .aa;//继承
+  @extend %placeholder;
+}
+
+@function add($x,$y){
+  @if ($x == 0){
+    $x :50px;
+  }
+  @return $x + $y;
+}
+.ff{
+  width: add(0px,30px);
+}
+
+
+
+
+
+
