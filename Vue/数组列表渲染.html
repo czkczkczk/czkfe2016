@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in items">
+                {{index}} + {{item.name}}
+            </li>
+        </ul>
+    </div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            items:[
+                {name:111},
+                {name:232},
+                {name:456}
+            ]
+        }
+    });
+    vm.items.push({name:44});
+    vm.items.pop();
+    vm.items = vm.items.filter(function(item){//非变异方法不能同步页面的解决办法
+        return item.name>111
+    });
+    console.log(vm)
+    Vue.set(vm.items,1,{name:56})
+
+</script>
+</body>
+</html>

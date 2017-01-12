@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="app">
+    <p v-if="show">654654</p>
+    <p v-else>564564564</p>
+
+    <template v-if="show">
+        <p>dhafjkh</p>
+        <p>bibibi</p>
+    </template>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            show:false
+        }
+    })
+</script>
+</body>
+</html>

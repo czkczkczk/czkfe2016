@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #097;
+        }
+        #app{
+            width: 400px;
+            margin: 200px auto;
+
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" id="qq"  v-on:keyup="focus" v-model="message"/>
+        <button v-on:click="add(message)">添加</button>
+        <ul>
+            <li v-for="item in showItems">
+                {{item.name}}
+            </li>
+        </ul>
+    </div>
+
+<script src="vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            items:[],
+            showItems:[],
+            message:""
+        },
+        methods:{
+            add:function(message){
+
+//                    var oInput = document.getElementById("qq");
+//                   console.log(oInput.value);
+                    vm.items.push({name:message});
+                    this.message = "";
+                    vm.items.sort(function(a,b){
+                        return a.name > b.name;
+                    });
+                    this.showItems = this.items;
+
+
+            },
+            focus:function(){
+               vm.showItems = vm.items.filter(function(item){
+                   return item.name.includes(vm.message)
+               })
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
