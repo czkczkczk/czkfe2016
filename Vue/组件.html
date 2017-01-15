@@ -8,33 +8,33 @@
 <body>
 <div id="qwe">
 
-    <!--<my-component v-bind:my-zu="message"></my-component>//局部定义组件-->
-    <my-component></my-component>
+    <my-component v-bind:my-zu="message"></my-component>//局部定义组件
+    <!--<my-component></my-component>-->
 </div>
 
 <script src="vue.js"></script>
 <script>
-//    //局部定义组件
-//    var vm = new Vue({
-//        el:"#qwe",
-//        data:{
-//            message:"CZK"
-//        },
-//        components:{
-//            "my-component":{
-//                template:" <div>qwe{{myZu}}rw</div>",
-//                props:["myZu"]
-//            }
-//        }
-//    })
-
-    //全局定义组件
-    Vue.component('my-component',{
-        template:"<div>qwerw</div>"
-    });
-    var vm  = new Vue({
-        el:"#qwe"
+    //局部定义组件
+    var vm = new Vue({
+        el:"#qwe",
+        data:{
+            message:"CZK"
+        },
+        components:{
+            "my-component":{
+                template:" <div>qwe{{myZu}}rw</div>",
+                props:["myZu"]
+            }
+        }
     })
+
+//    //全局定义组件
+//    Vue.component('my-component',{//组件名称
+//        template:"<div>qwerw</div>"//组件模版
+//    });
+//    var vm  = new Vue({
+//        el:"#qwe"
+//    })
 </script>
 </body>
 </html>

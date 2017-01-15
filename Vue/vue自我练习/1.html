@@ -61,8 +61,21 @@
       <input type="text" v-model="message"/>-->
   <!--</div>-->
 
-  6
-  组件应用
+  <!--6-->
+  <!--组件应用-->
+  <!--在 Vue 里，一个组件实质上是一个拥有预定义选项的一个 Vue 实例-->
+  <!--<div id="app">-->
+      <!--<component></component>-->
+  <!--</div>-->
+
+
+  <!--7.-->
+ <!--局部定义组件,方便应用,轻松显示不一样的文本-->
+  <div id="app">
+      <my-component v-bind:my-message="message"></my-component>
+      <!--！！这里的绑定写法必须xx-yyyy，在后面的props[""]里传递的要写成xxYyyy-->
+
+  </div>
 <script src="../vue.js"></script>
 <script>
     //1.
@@ -121,6 +134,35 @@
 //            message:"wqer"
 //        }
 //    })
+
+//    6
+//   全局自定义组件
+//       Vue.component("component",{
+//        template:"<li>fsklfjdskfj{{msg}}</li>",
+//         data:function(){//组件里面的data必须是函数，函数里返回的对象才是真正的值
+//               return {
+//                   msg:"CZK"
+//               }
+//           }
+//    });
+//    var vm = new Vue({
+//        el:"#app"
+//    })
+
+//    7.
+//    局部定义组件,方便应用,轻松显示不一样的文本
+    var vm = new Vue({
+        el:"#app",
+       data:{
+           message:"czkczk"
+       },
+        components:{
+            "my-component":{
+                template:"<h1>{{myMessage}}</h1>",
+                props:["myMessage"]
+            }
+        }
+    })
 
 
 
