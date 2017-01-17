@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script src="../reactjs/react-15.3.1/build/react.js"></script>
+    <script src="../reactjs/react-15.3.1/build/react-dom.js"></script>
+    <script src="../reactjs/react-15.3.1/browser.min.js"></script>
+
+    <script type="text/babel">
+//      1.组件不是真实的DOM节点,而是存在内存中的数据结构-虚拟DOM,只有在插入文档之后,才会变成真实的DOM
+//      2.react的设计原理就是,所有的DOM变动都在虚拟DOM上发生,最后将实际发生变动的部分,反映在真实DOM上,这可以极大提高网页的性能表现
+//      3.需要从DOM上获取真实的DOM的节点,这时就要用到ref属性
+
+
+//利用ref属性去实现打开页面操作DOM自动获取焦点
+        var Input = React.createClass({
+            //componentDidMount是 页面渲染（render）之后的操作，
+            // ，this.refs.refename获取的是真实DOM，所以必须等到虚拟DOM插入文档以后，才能使用这个属性
+            componentDidMount:function(){
+                this.refs.username.focus();
+            },
+            render:function(){
+                return (
+                        <input type="text" ref="username"/>
+                )
+            }
+        })
+
+        ReactDOM.render(
+                <Input/>,
+                document.getElementById("container")
+        )
+
+    </script>
+</body>
+</html>

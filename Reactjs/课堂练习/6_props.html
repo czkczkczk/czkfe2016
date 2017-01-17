@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="container"></div>
+    <script src="../reactjs/react-15.3.1/build/react.js"></script>
+    <script src="../reactjs/react-15.3.1/build/react-dom.js"></script>
+    <script src="../reactjs/react-15.3.1/browser.js"></script>
+    <script type="text/babel">
+        var SubMessage = React.createClass({
+            render:function(){
+                return (
+                        <h1>{this.props.str}</h1>
+                );
+            }
+        })
+        var Message = React.createClass({
+            render:function(){
+                var data = "454545"
+                return(
+                        <SubMessage str={data}/>
+                )
+            }
+        })
+        var Message1 = React.createClass({
+            render:function(){
+                var data = "7878"
+                return(
+                        <SubMessage str={data}/>
+                )
+            }
+        })
+
+        ReactDOM.render(
+                <div>
+                    <Message/>
+                    <Message1/>
+                </div>,
+                document.getElementById("container")
+        )
+
+    </script>
+</body>
+</html>
