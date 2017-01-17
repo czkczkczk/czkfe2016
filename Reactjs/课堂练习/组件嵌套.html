@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+    <body>
+    <div id="container"></div>
+    <script src="../reactjs/react-15.3.1/build/react.js"></script>
+    <script src="../reactjs/react-15.3.1/build/react-dom.js"></script>
+    <script src="../reactjs/react-15.3.1/browser.js"></script>
+
+    <script type="text/babel">
+
+        var Message = React.createClass({
+            render:function(){
+                return (
+                        <h1> hello </h1>
+                );
+            }
+        });
+        var Message1 = React.createClass({
+            render:function(){
+                return (
+                         <Message/>
+                        <h1> world </h1>
+
+                )
+            }
+        });
+        ReactDOM.render(
+                <Message1/>,
+                document.getElementById("container")
+        )
+
+    </script>
+</body>
+</html>

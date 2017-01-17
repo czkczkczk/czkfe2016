@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="container"></div>
+    <script src="../reactjs/react-15.3.1/build/react.js"></script>
+    <script src="../reactjs/react-15.3.1/build/react-dom.js"></script>
+    <script src="../reactjs/react-15.3.1/browser.js"></script>
+    <!-- JSXTransformer.js //browser.js原来的写法，  -->
+    <!--jsxTransformer.js专门用来解析js/jsx文件中的jsx语法，而babel不光能干这些还能编译ES6语法等等-->
+
+    <script type="text/babel">
+//        type="text/babel"是为了让浏览器不把里面的内容当js代码,自己去解析
+        ReactDOM.render(
+                <h1>
+                    hello world
+                </h1>,
+                document.getElementById("container")
+        )
+    </script>
+</body>
+</html>

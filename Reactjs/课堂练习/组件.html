@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="container"></div>
+    <script src="../reactjs/react-15.3.1/build/react.js"></script>
+    <script src="../reactjs/react-15.3.1/build/react-dom.js"></script>
+    <script src="../reactjs/react-15.3.1/browser.js"></script>
+    <script type="text/babel">
+        /*
+         * 定义组件
+         * 注意：首字母必须大写、必须是一个闭合的标签
+         *
+         * */
+        var Message = React.createClass({
+            render:function(){
+                return (
+                        <div>
+                             <h1> hello </h1>
+                             <h1> world </h1>
+                        </div>
+                )
+            }
+        });
+
+        ReactDOM.render(
+       /*相邻的JSX元素必须包裹在一个封闭的标签*/
+               <div>
+                    <Message/>
+                    <Message/>
+
+               </div>
+                ,
+                document.getElementById("container")
+
+        )
+
+    </script>
+</body>
+</html>
