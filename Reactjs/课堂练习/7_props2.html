@@ -16,6 +16,7 @@
                 var msg = [];
                 this.props.arr.forEach(function(value,index,array){
                     msg.push(<h1 key={index}>{value}</h1>)
+//                    react规定forEach里的子元素必须有一个唯一标识key，例如 key={index}
                 })
                 return(
                         <div>{msg}</div>

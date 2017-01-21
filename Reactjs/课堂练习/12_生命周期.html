@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <div id="container"></div>
+    <script src="../reactjs/react-15.3.1/build/react.js"></script>
+    <script src="../reactjs/react-15.3.1/build/react-dom.js"></script>
+    <script src="../reactjs/react-15.3.1/browser.min.js"></script>
+    <script type="text/babel">
+        var Count = React.createClass({
+            getInitialState:function(){
+                return{
+                    count:0
+                }
+            },
+             componentDidMount : function(){
+                 this.timer = setInterval(function(){
+                     this.setState({
+                         count:this.state.count+1
+                     })
+                 }.bind(this),1000)
+             },
+
+              shouldComponentUpdate:function(){//这个shouldComponentUpdate返回的是ture或false
+                  if(this.state.count >= 10){
+                      return false
+                  }
+                  return true
+              },
+
+             handleClick:function(){
+                 //从 DOM 中移除已经挂载的 React 组件，清除相应的事件处理器和 state。
+                 // 如果在 container 内没有组件挂载，这个函数将什么都不做。如果组件成功移除，则返回 true；
+                 // 如果没有组件被移除，则返回 false。
+                 ReactDOM.unmountComponentAtNode(document.getElementById("container"))
+             },
+             componentWillUnmount : function(){
+                 //该事件在组件即将被移除dom时会触发，主要用于进行一些清理工作.
+               clearInterval(this.timer)
+             },
+
+            render:function(){
+                  return(
+                          <div>
+                              <button onClick={this.handleClick}>销毁</button>
+                              <h1>{this.state.count}</h1>
+                          </div>
+                  )
+            }
+        })
+        ReactDOM.render(
+                <Count/>,
+                document.getElementById("container")
+        )
+
+    </script>
+</body>
+</html>
