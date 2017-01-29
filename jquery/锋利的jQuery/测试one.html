@@ -64,15 +64,15 @@
 //        })
 //    })
   $(function () {
-      $('li:gt(5):not(:last)').hide()
+      $('li:gt(5):not(:last)').hide();//索引值大于5的除了最后一个隐藏
+
       $('a').on('click',function(){
           if($('a').text()=='显示全部'){
-              $('li:gt(5):not(:last)').show();
+              $('li:gt(5)').show();
               $('a').text('收起');
           }
           else if(($('a').text()=='收起')){
-
-                 $('li:gt(5):not(:last)').hide();
+                 $('li:gt(5):not(:last)').hide();//索引值大于5的除了最后一个全部隐藏
                  $('a').text('显示全部');
 
          }

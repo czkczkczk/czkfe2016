@@ -25,7 +25,7 @@
 
 
     <!--3 给title加div-->
-    <!--<a href="#"title="这是title">title</a>-->
+    <a href="#" title="这是title">title</a>
 
 
 </div>
@@ -54,23 +54,23 @@
  /*       3            */
 
 
-//        $('a').hover(function(e){
-//            this.mytitle=this.title;
-//            this.title=''
-//
-//            var $newtitle="<div id='qw'>"+this.mytitle+"</div>"
-//            $('body').append($newtitle);
-//            $('#qw').css({
-//                'left':(e.pageX)+'px',' top': (e.pageY)+'px'
-//            }).show('fast')
-//        },function(){
-//            $('#qw').remove()
-//            this.title=this.mytitle;
-//        }).mousemove(function (e) {
-//            $('#qw').css({
-//                'left':(e.pageX)+'px',' top': (e.pageY)+'px'
-//            })
-//        })
+        $('a').hover(function(e){
+            this.mytitle=this.title;
+            this.title='';//此处是取消原本的鼠标长时间停留显示的title
+
+            var $newtitle="<div id='qw'>"+this.mytitle+"</div>";
+            $('body').append($newtitle);
+            $('#qw').css({
+                'left':(e.pageX)+'px',' top': (e.pageY)+'px'//获取光标相对页面的坐标
+            }).show('fast')
+        },function(){
+            $('#qw').remove();
+            this.title=this.mytitle;
+        }).mousemove(function (e) {
+            $('#qw').css({
+                'left':(e.pageX)+'px',' top': (e.pageY)+'px'
+            })
+        })
 
     });
 

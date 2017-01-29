@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .app2{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!--<div>-->
+        <!--1.-->
+            <!--window.onload方法是在网页中的所有元素(包括元素的关联文件)完全加载到浏览器之后才执行-->
+        <!--2.-->
+           <!--而通过jQuery中的$(document).ready()【文档就绪函数】方法注册的事件处理程序，在DOM完全就绪时就可以被调用-->
+           <!--此时，网页的所有元素对jQuery而言都是可以访问的，但是这并不意味着这些元素关联的文件都已经下载完毕了-->
+
+    <!--</div>-->
+    <!--<form action="" name="a">-->
+        <!--<select name="a" id="obj">-->
+            <!--<option value="a">1</option>-->
+            <!--<option value="b">2</option>-->
+            <!--<option value="c">3</option>-->
+        <!--</select>-->
+    <!--</form>-->
+
+    <!--｛1｝-->
+<!--<div id="app1">-->
+    <!--<h4 class="app2">哈塞</h4>-->
+    <!--<p>磅礴力求</p>-->
+<!--</div>-->
+
+
+    <!--【2】测试鼠标点击，获取鼠标左中右键-->
+    <!--<a href="">dsd</a>-->
+<!--【3】-->
+<!--<button id="btn">click</button>-->
+<!--<div id="test"></div>-->
+<!--<button id="cancel">cancel</button>-->
+
+    <input type="text"/>
+
+</body>
+<script src="../jquery-1.12.3.js"></script>
+<script>
+//////    var obj = {};
+//////    obj.log = console.log;
+//////    obj.log.call(console,this);
+//    function obj(name){
+//        window.name = name;
+//        console.log(this);
+//        return this;
+//
+//    }
+////    obj. = "name2";
+//    var a = obj("name1");
+//
+////    var b = new obj;
+//    console.log(a.name);
+////    var a ;
+////    var b = null;
+////    console.log(typeof undefind)
+//
+//
+//
+//    function showMoney(){
+//        return this.money
+//    }
+//    var personA  = new Object;
+//    personA.money = 100;
+//    personA.showMoney = showMoney;
+//    console.log(personA.showMoney())
+//function one(){
+//    alert(1)
+//}
+//    function two(){
+//        alert(2)
+//    }
+//window.onload = one;
+//    window.onload = two;
+
+//｛1｝
+//    $(function(){
+//        $('#app1 h4.app2').on('mouseenter', function () {
+//            if($(this).next().is(':visible')){
+//                console.log(1);
+//                $(this).next().hide();
+//            }else{
+//                $(this).next().show();
+//            }
+//        })
+//    })
+//【2】测试鼠标点击，获取鼠标左中右键
+//    $(function(){
+//        $('a').mousedown(function(e){
+//            alert(e.which)//1是左键，2是中键，3是右键
+//        })
+//    })
+//【3】单独删除一个事件
+//    $(function(){
+//        $('#btn').bind('click',myFun1 = function(){
+//            $('#test').append('<p>test1</p>')
+//        }).bind('click',function(){
+//            $('#test').append('<p>test2</p>')
+//        }).bind('click',function(){
+//            $('#test').append('<p>test3</p>')
+//        });
+//
+//        $('#cancel').bind('click',function(){
+//            $('#btn').unbind('click',myFun1)
+//        })
+//    })
+//【3】one()方法:当处理函数触发一次后，立即被删除
+//$(function(){
+//    $('#btn').one('click',myFun1 = function(){
+//        $('#test').append('<p>test1</p>')
+//    }).one('click',function(){
+//        $('#test').append('<p>test2</p>')
+//    }).one('click',function(){
+//        $('#test').append('<p>test3</p>')
+//    });
+//
+//})
+    $('input').trigger('focus');//不仅会触发input元素的focus事件，也会使input元素本身获得焦点(这是浏览器默认行为)
+    $('input').triggerHandler('focus');//只会触发绑定的事件，不会触发浏览器默认行为
+</script>
+</html>
