@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: #a98e67;
+            text-align: center;
+            line-height: 200px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        animate动画效果必须定位
+    </div>
+</body>
+<script src="../jquery-1.12.3.js"></script>
+<script>
+//    $(function(){
+//        $('#div').on('click',function(){
+//            $(this).animate({right:'500px'},3000,function(){
+//               $(this). css('border','5px solid blue');
+//               //此处是将改变css的操作卸载回调函数里，因为css()，而是立即执行
+//            }).fadeOut('slow')
+//        })
+//    })
+    $(function () {
+        $('#div').hover(function () {
+            $(this).stop(true).animate({height:"500px",width:"500px"});
+            //在执行这个动画之前加上stop(),停止上一个正在执行的动画，可以解决动画执行与鼠标指针不同步的现象
+        },function () {
+            $(this).stop().animate({height:"200px",width:"200px"})
+        })
+    })
+</script>
+</html>

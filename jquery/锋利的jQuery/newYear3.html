@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <button id="btn">点击</button>
+    <div id="one">
+        <p>2017大年初三</p>
+        <p>今天家里人多</p>
+        <p>亲朋好友欢聚一堂</p>
+        <p>下午还和小姑娘看电影</p>
+        <p>真忙</p>
+    </div>
+</body>
+<script src="../jquery-1.12.3.js"></script>
+<script>
+    $(function(){
+        $('#one').hide();
+        var a = 1;
+         $('#btn').on('click',function(){
+             if(a == 1){
+//                 $('#one').show(600);
+                 $('#one').slideDown();//以滑动方式显示隐藏元素
+                 a=0;
+             }else{
+//                 $('#one').hide(600);
+                 $('#one').slideUp();//以滑动方式隐藏元素
+                 a=1;
+             }
+         })
+    })
+</script>
+</html>
