@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初六网页换肤</title>
+</head>
+<style>
+    /*基本样式*/
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul {
+        list-style: none;
+        overflow: hidden;
+        margin-left: 45%;
+        margin-top: 100px;
+    }
+    ul li{
+        float: left;
+        margin-right: 4px;
+        text-indent: -9999px;/*文本块中首行文本缩进，作用效果就是li的字缩进到看不见*/
+        background-image: url("theme.gif");
+        background-repeat: no-repeat;
+        cursor: pointer;
+        width: 15px;
+        height: 15px;/*将li大小设置成小精灵图片的大小，这样才贴合*/
+
+    }
+    div{
+        display: inline-block;
+    }
+    #one{
+        margin-left: 39%;
+    }
+    #new ,#game{
+        width: 131px;
+        height: 38px;
+        background: #4f71b9;
+    }
+    /*基本样式over*/
+    /*小精灵*/
+    #skin_1{
+        background-position: -100px 0;
+    }
+    #skin_2{
+        background-position: -80px 0;
+    }
+    #skin_3{
+        background-position: -60px 0;
+    }
+    #skin_4{
+        background-position: -40px 0;
+    }
+    #skin_5{
+        background-position: -20px 0;
+    }
+    #skin_0.selected { background-position:0px -15px; }
+    #skin_1.selected { background-position:-100px -15px; }
+    #skin_2.selected { background-position:-80px -15px; }
+    #skin_3.selected { background-position:-60px -15px; }
+    #skin_4.selected { background-position:-40px -15px; }
+    #skin_5.selected { background-position:-20px -15px; }
+    /*小精灵over*/
+    /*选中div颜色*/
+    #new.skin_0_color{
+        background: #4f71b9;
+    }
+    #new.skin_1_color{
+        background: #c152da;
+    }
+    #new.skin_2_color{
+        background: #e1215d;
+    }
+    #new.skin_3_color{
+        background: #0abdce;
+    }
+    #new.skin_4_color{
+        background: #f9af2a;
+    }
+    #new.skin_5_color{
+        background: #b1d460;
+    }
+    #game.skin_0_color{
+        background: #4f71b9;
+    }
+    #game.skin_1_color{
+        background: #c152da;
+    }
+    #game.skin_2_color{
+        background: #e1215d;
+    }
+    #game.skin_3_color{
+        background: #0abdce;
+    }
+    #game.skin_4_color{
+        background: #f9af2a;
+    }
+    #game.skin_5_color{
+        background: #b1d460;
+    }
+</style>
+<body>
+    <ul id="skin">
+        <li id="skin_0" title="蓝色"class="selected" >蓝色</li>
+        <li id="skin_1" title="紫色">紫色</li>
+        <li id="skin_2" title="红色">红色</li>
+        <li id="skin_3" title="天蓝色">天蓝色</li>
+        <li id="skin_4" title="橙色">橙色</li>
+        <li id="skin_5" title="淡绿色">淡绿色</li>
+    </ul>
+    <div  id="one">
+        <div id="new">
+            <h1>时事新闻</h1>
+        </div>
+    </div>
+   <div>
+       <div id="game">
+           <h1>娱乐新闻</h1>
+       </div>
+   </div>
+</body>
+<script src="../jquery-1.12.3.js"></script>
+<script>
+    $(function () {
+        $("ul li").click(function () {
+            var $id = this.id;
+            console.log($id);
+            $(this).addClass("selected").siblings().removeClass("selected");
+            $("#new").prop("class",$id+"_color");
+            $("#game").prop("class",$id+"_color")
+
+        })
+    })
+</script>
+</html>
