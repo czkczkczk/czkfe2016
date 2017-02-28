@@ -1,0 +1,50 @@
+<html>
+<title>css控制字数</title>
+<head>
+    <style type="text/css">
+        .dd
+        {
+            /*border: solid 1px gray;*/
+            width:180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            /*course:hand;*/
+        }
+    </style>
+</head>
+<body>
+<span class="dd">
+信心网使用CSS控制文章标题字数信心网使用CSS控制文章标题字数信心网使用CSS控制文章标题字数
+</span>
+<br>
+<div class="dd">
+    信心网使用CSS控制文章标题字数信心网使用CSS控制文章标题字数信心网使用CSS控制文章标题字数
+</div>
+</body>
+</html>
+<script>
+//    var arrData = ["ID","name","phone","card"];
+//    var arrProp = ["order_id","name","phone","card"];
+//    for(var i=0;i<arrData.length;i++){
+//        for(var j=0;j<arrProp.length;j++){
+//
+//        }
+//    }
+var arr=[];
+var arrDate = [];
+var arrName = ["0","1","2"];
+var arrPhone = ["3","4","5"];
+var arrCard = ["6","7","8"];
+    for(var j=0;j<arrName.length;j++){
+    arr=[arrName[j],arrPhone[j],arrCard[j]];
+    arrDate.push(arr)
+    }
+    console.log(arrDate);
+    for(var i=0;i<arrDate.length;i++){
+
+    }
+
+
+
+</script>
