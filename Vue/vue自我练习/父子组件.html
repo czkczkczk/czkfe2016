@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父组件和子组件</title>
+</head>
+<body>
+    <div id="app">
+        <parent-component></parent-component>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var Child = Vue.extend({
+        template:"<p>子组件只能在父组件的template中使用。</p>"
+    });
+    var Parent  = Vue.extend({
+        // 在Parent组件内使用<child-component>标签
+        template :"<p>This is a Parent component<child-component></child-component></p>",
+        components:{
+            // 局部注册Child组件，该组件只能在Parent组件内使用
+            "child-component":Child
+        }
+    });
+
+    // 全局注册Parent组件
+    Vue.component("parent-component",Parent);
+    new Vue({
+        el:"#app"
+    });
+
+//    我们分几个步骤来理解这段代码：
+//
+//    var Child = Vue.extend(...)定义一了个Child组件构造器
+//    var Parent = Vue.extend(...)定义一个Parent组件构造器
+//    components: { 'child-component': Child }，将Child组件注册到Parent组件，并将Child组件的标签设置为child-component。
+//    template :'<p>This is a Parent component</p><child-component></child-component>'，在Parent组件内以标签的形式使用Child组件。
+//    Vue.component('parent-component', Parent) 全局注册Parent组件
+//    在页面中使用<parent-component>标签渲染Parent组件的内容，同时Child组件的内容也被渲染出来
+</script>
+</html>

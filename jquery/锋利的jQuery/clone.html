@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="hello">Hello</div>
+        <div class="goodbye">Goodbye</div>
+        <button id="click">点击</button>
+    </div>
+</body>
+<script src="../jquery-1.12.3.js"></script>
+<script>
+
+    $(function () {
+        $("#click").on("click",function () {
+            $('.hello').clone().appendTo('.goodbye').removeClass("hello").addClass("ee");
+        })
+
+    })
+</script>
+</html>
