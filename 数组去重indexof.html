@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var arr = [1,2,3,'3',4,1,2,3];
+      var indexOf = [].indexOf ? //        ？  判断兼容性，数组里是否有这个属性，有执行下面的，没有执行冒号后面的
+        function (arr, item) {
+            return (arr.indexOf(item))
+        }:
+          function indexOf(arr, item) {
+             for(var i = 0;i<arr.length;i++){
+                 if(arr[i] === item){
+                     return i
+                 }
+             }
+             return -1
+          };
+
+          function qqq(arr) {
+              var ret = [];
+                for(var i = 0;i<arr.length;i++){
+                    var item = arr[i];
+                    if(indexOf(ret,item)===-1){
+                        ret.push(item)
+                    }
+                }
+                return ret
+          }
+          qqq(arr);
+        console.log(arr);
+          console.log(qqq(arr) )
+
+</script>
+
+</body>
+</html>
