@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .comment{
+            background: yellow;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="ajax获取" id="button">
+<div>已有评论:</div>
+<div id="qwe"></div>
+    <script src="../../jquery-1.12.3.js"></script>
+    <!--<script src="../../jquery.color.js"></script>-->
+    <script>
+        $(function () {
+            $("#button").on("click",function () {
+                $("#qwe").load("test.html");
+                $.getScript("../../jquery.color.js",function () {
+                    $("#go").on("click",function () {
+                        console.log(11);
+                        $(".comment").animate({backgroundColor:'pink'},1000).animate({backgroundColor:'blue'},1000)
+                    })
+                })
+//                load方法的url参数 "url selector"url和选择器
+            });
+
+        })
+    </script>
+
+</body>
+</html>

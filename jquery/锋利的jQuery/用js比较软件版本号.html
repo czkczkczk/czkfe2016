@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //    function versionCompare(v1,v2){
+    //
+    //        v1 =v1.replace(/(^\s+)|(\s+$)/gi,"");
+    //        v2 = v2.replace(/(^\s+)|(\s+$)/gi,"");
+    //        if(!v1 || !v2){
+    //            return;
+    //        }
+    //
+    //        v1 = /\d(\.|\d)*\d/gi.exec(v1)[0];
+    //        v2 = /\d(\.|\d)*\d/gi.exec(v2)[0];
+    //
+    //        var arr1 = v1.split('.');
+    //        arr1 = arr1.map(function(item){
+    //            parseInt(item);
+    //        });
+    //
+    //        var arr2 = v2.split('.');
+    //        arr2 = arr2.map(function(item){
+    //            parseInt(item);
+    //        });
+    //
+    //        if(arr1[0]>arr2[0]){
+    //            return true;
+    //        }else if(arr1[0] == arr2[0]){
+    //            if(arr1[1]>arr2[1]){
+    //                return true;
+    //            }else if(arr1[1] == arr2[1]){
+    //                if(arr1[2]>arr2[2]){
+    //                    return true;
+    //                }else if(arr1[2] == arr2[2]){
+    //                    console.log(arr1[2]);
+    //                    return false;
+    //
+    //                }
+    //            }
+    //        }
+    //        return false;
+    //    }
+    //    console.log(versionCompare("pc2.5.6","m2.2.9"));
+    //    versionCompare("pc2.5.6","m2.2.9");
+    //
+    //
+    function versionCompare(v1,v2){
+        v1 =v1.replace(/(^\s+)|(\s+$)/gi,"");
+        v2 = v2.replace(/(^\s+)|(\s+$)/gi,"");
+        if(!v1 || !v2){
+            return;
+        }
+        v1 = /\d(\.|\d)*\d/gi.exec(v1)[0];
+        v2 = /\d(\.|\d)*\d/gi.exec(v2)[0];
+
+        var arr1 = v1.split('.');
+        /*
+         arr1.map(function(item){
+         parseInt(item);
+         arr3.push(item)
+         });*/
+        console.log(arr1[0]);
+        var arr2 = v2.split('.');
+        /* arr2 = arr2.map(function(item){
+         parseInt(item);
+         });*/
+        if(arr1[0]>arr2[0]){
+            return true;
+        }else if(arr1[0]==arr2[0]){
+            if(arr1[1]>arr2[1]){
+                return true;
+            }else if(arr1[1]==arr2[1]){
+                if(arr1[2]>arr2[2]){
+                    return true;
+                }else if(arr1[2] == arr2[2]){
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+    console.log(versionCompare("pc2.5.6","p2.43.9"));
+    console.log(versionCompare("pc1.44.6","a3.43.9"));
+</script>
+</body>
+</html>
