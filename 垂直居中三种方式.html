@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>vertical center</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .parent{
+            width: 200px;
+            height: 100px;
+            margin: 20px;
+            background-color: yellow;
+        }
+        .child{
+            background-color: green;
+        }
+        /*the three ways can be adapted to unknown height of parent child container*/
+        /*first way*/
+        .parent-a{
+            position: relative;
+        }
+        .child-a{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        /*second way*/
+        .parent-b{
+            display: flex;
+            align-items: center;
+        }
+        /*third way*/
+        .parent-c{
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div class="parent parent-a">
+    <div class="child child-a">demo-a</div>
+</div>
+<div class="parent parent-b">
+    <div class="child child-b">demo-b</div>
+</div>
+<div class="parent parent-c">
+    <div class="child child-c">demo-c</div>
+</div>
+</body>
+<html>
